@@ -24,5 +24,11 @@ namespace FU_UWP
         {
             InitializeComponent();
         }
+
+        private void Window_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Q)
+                this.Close();
+        }
     }
 }

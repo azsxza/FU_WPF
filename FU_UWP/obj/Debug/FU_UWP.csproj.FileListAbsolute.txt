@@ -1,1 +1,15 @@
 C:\Users\chengk\Desktop\FU_\FU_UWP\FU_UWP\bin\Debug\FU_UWP.exe.config
+D:\FU_WPF\FU_UWP\bin\Debug\FU_UWP.exe.config
+D:\FU_WPF\FU_UWP\bin\Debug\FU_UWP.exe
+D:\FU_WPF\FU_UWP\bin\Debug\FU_UWP.pdb
+D:\FU_WPF\FU_UWP\obj\Debug\FU_UWP.csprojResolveAssemblyReference.cache
+D:\FU_WPF\FU_UWP\obj\Debug\MainWindow.g.cs
+D:\FU_WPF\FU_UWP\obj\Debug\App.g.cs
+D:\FU_WPF\FU_UWP\obj\Debug\FU_UWP_MarkupCompile.cache
+D:\FU_WPF\FU_UWP\obj\Debug\FU_UWP_MarkupCompile.lref
+D:\FU_WPF\FU_UWP\obj\Debug\MainWindow.baml
+D:\FU_WPF\FU_UWP\obj\Debug\FU_UWP.g.resources
+D:\FU_WPF\FU_UWP\obj\Debug\FU_UWP.Properties.Resources.resources
+D:\FU_WPF\FU_UWP\obj\Debug\FU_UWP.csproj.GenerateResource.Cache
+D:\FU_WPF\FU_UWP\obj\Debug\FU_UWP.exe
+D:\FU_WPF\FU_UWP\obj\Debug\FU_UWP.pdb
