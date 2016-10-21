@@ -27,8 +27,6 @@
         <SolidColorBrush x:Key="Button.Disabled.Border" Color="#FFADB2B5"/>
         <SolidColorBrush x:Key="Button.Disabled.Foreground" Color="#FF838383"/>
         <Style x:Key="ImageButton" TargetType="{x:Type Button}">
-            <EventSetter Event="MouseEnter" Handler="ImageButtonMouseEnter"/>
-            <EventSetter Event="MouseLeave" Handler="ImageButtonMouseLeave"/>
             <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
             <Setter Property="Background" Value="{StaticResource Button.Static.Background}"/>
             <Setter Property="BorderBrush" Value="{StaticResource Button.Static.Border}"/>
@@ -58,9 +56,12 @@
             </Setter>
         </Style>
     </Window.Resources>
+
+
+
     <Grid Background="#FFDFD3D3">
-        <Grid HorizontalAlignment="Left" Height="290" Margin="0,790,0,0" VerticalAlignment="Top" Width="1920" Background="#FF7791B6"/>
-        <Image x:Name="image" HorizontalAlignment="Left" Height="250" Margin="462,0,0,0" VerticalAlignment="Top" Width="1000" Source="images/组成部分/浮生绘.png"/>
+        <Grid x:Name="show_bar" HorizontalAlignment="Left" Height="290" Margin="0,790,0,0" VerticalAlignment="Top" Width="1920" Background="#FF7791B6"/>
+        <Image x:Name="FU_NAME" HorizontalAlignment="Left" Height="250" Margin="462,0,0,0" VerticalAlignment="Top" Width="1000" Source="images/组成部分/浮生绘.png"/>
         <Button x:Name="paizhao" Panel.ZIndex="1" Content="" HorizontalAlignment="Center" Margin="462,255,1058,0" VerticalAlignment="Top" Width="400" Height="400" BorderBrush="#00707070" Foreground="#00000000" Style="{DynamicResource ImageButton}" Click="paizhao_Click">
             <Button.Background>
                 <ImageBrush ImageSource="images/图标/拍照.png"/>
@@ -72,6 +73,17 @@
             </Button.Background>
         </Button>
         <Image x:Name="image1" HorizontalAlignment="Left" Height="22" Margin="0,438,0,0" VerticalAlignment="Top" Width="1920" Source="images/组成部分/小蓝条.png" Stretch="Fill"/>
+        <Grid x:Name="paizhaokuang" Opacity="0" Panel.ZIndex="0" HorizontalAlignment="Left" Height="920" Margin="350,80,0,0" VerticalAlignment="Top" Width="1220">
+            <Grid.Background>
+                <ImageBrush ImageSource="images/组成部分/拍照框.png"/>
+            </Grid.Background>
+            <Image x:Name="image" HorizontalAlignment="Left" Height="900" Margin="10,10,0,0" VerticalAlignment="Top" Width="1200"/>
+        </Grid>
+        <Button x:Name="chongpai" Panel.ZIndex="1" Content="" HorizontalAlignment="Center" Margin="1920,670,-200,210" VerticalAlignment="Center" Width="200" Height="200" BorderBrush="#00707070" Foreground="#00000000" Style="{DynamicResource ImageButton}" Click="chongpai_Click">
+            <Button.Background>
+                <ImageBrush ImageSource="images/图标/重拍.png"/>
+            </Button.Background>
+        </Button>
 
     </Grid>
 </Window>
