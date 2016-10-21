@@ -68,7 +68,7 @@ namespace FU_UWP
         private void paizhao_Click(object sender, RoutedEventArgs e)
         {
             MainPageUpdate1();
-            ((ImageBrush)paizhao.Background).ImageSource = new BitmapImage(new Uri(@"C:\Users\chengk\Desktop\FU_WPF\FU_UWP\images\图标\返回.png"));
+            //((ImageBrush)paizhao.Background).ImageSource = new BitmapImage(new Uri(@"..\..\images\图标\返回.png"));
         }
 
         private void shangchuan_Click(object sender, RoutedEventArgs e)

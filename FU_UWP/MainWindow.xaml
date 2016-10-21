@@ -59,7 +59,7 @@
         </Style>
     </Window.Resources>
     <Grid Background="#FFDFD3D3">
-        <Grid HorizontalAlignment="Left" Height="336" Margin="0,744,0,0" VerticalAlignment="Top" Width="1920" Background="#FF7791B6"/>
+        <Grid HorizontalAlignment="Left" Height="290" Margin="0,790,0,0" VerticalAlignment="Top" Width="1920" Background="#FF7791B6"/>
         <Image x:Name="image" HorizontalAlignment="Left" Height="250" Margin="462,0,0,0" VerticalAlignment="Top" Width="1000" Source="images/组成部分/浮生绘.png"/>
         <Button x:Name="paizhao" Panel.ZIndex="1" Content="" HorizontalAlignment="Center" Margin="462,255,1058,0" VerticalAlignment="Top" Width="400" Height="400" BorderBrush="#00707070" Foreground="#00000000" Style="{DynamicResource ImageButton}" Click="paizhao_Click">
             <Button.Background>
