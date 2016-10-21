@@ -27,3 +27,5 @@ C:\Users\chengk\Desktop\FU_WPF\FU_UWP\obj\Debug\MainWindow.baml
 C:\Users\chengk\Desktop\FU_WPF\FU_UWP\obj\Debug\FU_UWP.g.resources
 C:\Users\chengk\Desktop\FU_WPF\FU_UWP\obj\Debug\FU_UWP.Properties.Resources.resources
 C:\Users\chengk\Desktop\FU_WPF\FU_UWP\obj\Debug\FU_UWP.csproj.GenerateResource.Cache
+D:\FU_WPF\FU_UWP\bin\Debug\Emgu.CV.World.dll
+D:\FU_WPF\FU_UWP\bin\Debug\Emgu.CV.World.xml

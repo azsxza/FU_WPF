@@ -5,8 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FU_UWP"
         mc:Ignorable="d"
-        Title="MainWindow" Height="1080" Width="1920" WindowState="Normal" ResizeMode="NoResize" WindowStyle="None" Left="0.0" Top="0.0" KeyUp="Window_KeyUp">
-    <Grid>
-        
+        Title="MainWindow" Height="1080" Width="1920" WindowState="Normal" Topmost="True"
+        ResizeMode="NoResize" WindowStyle="None" Left="0.0" Top="0.0" KeyUp="Window_KeyUp">
+    <Grid Background="#FFDFD3D3">
+        <Grid HorizontalAlignment="Left" Height="357" Margin="0,723,0,0" VerticalAlignment="Top" Width="1920" Background="#FF7791B6"/>
+
     </Grid>
 </Window>
