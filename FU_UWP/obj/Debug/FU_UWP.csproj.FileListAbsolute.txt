@@ -29,3 +29,4 @@ C:\Users\chengk\Desktop\FU_WPF\FU_UWP\obj\Debug\FU_UWP.Properties.Resources.reso
 C:\Users\chengk\Desktop\FU_WPF\FU_UWP\obj\Debug\FU_UWP.csproj.GenerateResource.Cache
 D:\FU_WPF\FU_UWP\bin\Debug\Emgu.CV.World.dll
 D:\FU_WPF\FU_UWP\bin\Debug\Emgu.CV.World.xml
+C:\Users\chengk\Desktop\FU_WPF\FU_UWP\bin\Debug\Emgu.CV.World.xml

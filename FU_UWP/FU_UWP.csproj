@@ -89,6 +89,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="images\组成部分\下蓝条.psd" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -97,6 +98,41 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\说明.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\界面\主页1.jpg" />
+    <Resource Include="images\界面\从相册里选.jpg" />
+    <Resource Include="images\界面\弹出二维码.jpg" />
+    <Resource Include="images\界面\拍照界面1.jpg" />
+    <Resource Include="images\界面\拍照界面2.jpg" />
+    <Resource Include="images\界面\照片预览.jpg" />
+    <Resource Include="images\界面\编辑界面.jpg" />
+    <Resource Include="images\界面\选择界面.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\图标\从相册中选择.png" />
+    <Resource Include="images\图标\完成.png" />
+    <Resource Include="images\图标\局部调整.png" />
+    <Resource Include="images\图标\拍摄.png" />
+    <Resource Include="images\图标\拍照.png" />
+    <Resource Include="images\图标\滤镜.png" />
+    <Resource Include="images\图标\确定.png" />
+    <Resource Include="images\图标\贴纸.png" />
+    <Resource Include="images\图标\返回.png" />
+    <Resource Include="images\图标\重拍.png" />
+    <Resource Include="images\图标\风格模仿.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\组成部分\下蓝条.png" />
+    <Resource Include="images\组成部分\二维码框.png" />
+    <Resource Include="images\组成部分\功能选择.png" />
+    <Resource Include="images\组成部分\小蓝条.png" />
+    <Resource Include="images\组成部分\拍照框.png" />
+    <Resource Include="images\组成部分\浮生绘.png" />
+    <Resource Include="images\组成部分\滑动条.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
