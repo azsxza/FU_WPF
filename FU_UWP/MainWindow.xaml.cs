@@ -34,6 +34,7 @@ namespace FU_UWP
 
         bool isinpaishe = false;
         bool iscongpaiin = false;
+        bool istakeaphoto = false;
 
         public MainWindow()
         {
@@ -76,7 +77,7 @@ namespace FU_UWP
             paizhao.BeginAnimation(MarginProperty, anim);
 
             ThicknessAnimation anim2 = new ThicknessAnimation();
-            anim2.From = new Thickness(1127, 250, 393, 430);
+            anim2.From = new Thickness(1062, 250, 458, 430);
             anim2.To = new Thickness(1710, 460, 10, 420);
             anim2.Duration = TimeSpan.FromSeconds(0.36);
             shangchuan.BeginAnimation(MarginProperty, anim2);
@@ -118,7 +119,7 @@ namespace FU_UWP
 
             ThicknessAnimation anim2 = new ThicknessAnimation();
             anim2.From = new Thickness(1710, 460, 10, 420);
-            anim2.To = new Thickness(1127, 250, 393, 430);
+            anim2.To = new Thickness(1062, 250, 458, 430);
             anim2.Duration = TimeSpan.FromSeconds(0.36);
             shangchuan.BeginAnimation(MarginProperty, anim2);
 
@@ -201,7 +202,46 @@ namespace FU_UWP
         private void shangchuan_Click(object sender, RoutedEventArgs e)
         {
             //MainPageUpdate1();
-            if(isinpaishe)
+
+            //如果重拍按钮在界面中，则该按钮的功能为完成
+            if(iscongpaiin)
+            {
+                ThicknessAnimation anim = new ThicknessAnimation();
+                anim.From = new Thickness(10, 465, 1710, 0);
+                anim.To = new Thickness(0, 0, 1720, 0);
+                anim.Duration = TimeSpan.FromSeconds(0.36);
+                paizhao.BeginAnimation(MarginProperty, anim);
+
+                ThicknessAnimation anim2 = new ThicknessAnimation();
+                anim2.From = new Thickness(1710, 460, 10, 420);
+                anim2.To = new Thickness(1216, 854, 504, 26);
+                anim2.Duration = TimeSpan.FromSeconds(0.36);
+                shangchuan.BeginAnimation(MarginProperty, anim2);
+
+                ThicknessAnimation anim3 = new ThicknessAnimation();
+                anim3.From = new Thickness(1710, 665, 10, 225);
+                anim3.To = new Thickness(1920, 665, -200, 225);
+                anim3.Duration = TimeSpan.FromSeconds(0.36);
+                chongpai.BeginAnimation(MarginProperty, anim3);
+
+                ThicknessAnimation anim4 = new ThicknessAnimation();
+                anim4.From = new Thickness(350, 80, 0, 0);
+                anim4.To = new Thickness(806, 62, 0, 0);
+                anim4.Duration = TimeSpan.FromSeconds(0.36);
+                paizhaokuang.BeginAnimation(MarginProperty, anim4);
+
+                DoubleAnimation daV = new DoubleAnimation(1220, 1020, new Duration(TimeSpan.FromSeconds(0.36)));
+                paizhaokuang.BeginAnimation(WidthProperty, daV);
+                DoubleAnimation daV2 = new DoubleAnimation(920, 770, new Duration(TimeSpan.FromSeconds(0.36)));
+                paizhaokuang.BeginAnimation(HeightProperty, daV2);
+
+                DoubleAnimation daV3 = new DoubleAnimation(1200, 1000, new Duration(TimeSpan.FromSeconds(0.36)));
+                image.BeginAnimation(WidthProperty, daV3);
+                DoubleAnimation daV4 = new DoubleAnimation(900, 750, new Duration(TimeSpan.FromSeconds(0.36)));
+                image.BeginAnimation(HeightProperty, daV4);
+            }
+            //如果在拍摄中，而且重拍按钮不在界面中，则该按钮功能为拍摄
+            else if(isinpaishe)
             {
                 tt = capframe.Bitmap;
                 cap.Stop();
@@ -228,10 +268,11 @@ namespace FU_UWP
         {
             cap.Start();
             ThicknessAnimation anim = new ThicknessAnimation();
-            anim.From = new Thickness(1710, 665, 0, 225);
+            anim.From = new Thickness(1710, 665, 10, 225);
             anim.To = new Thickness(1920, 670, -200, 210);
             anim.Duration = TimeSpan.FromSeconds(0.36);
             chongpai.BeginAnimation(MarginProperty, anim);
+            ((ImageBrush)shangchuan.Background).ImageSource = new BitmapImage(new Uri(@"..\..\images\图标\拍摄.png", UriKind.Relative));
             iscongpaiin = false;
         }
     }

@@ -67,7 +67,7 @@
                 <ImageBrush ImageSource="images/图标/拍照.png"/>
             </Button.Background>
         </Button>
-        <Button x:Name="shangchuan" Panel.ZIndex="1" Content="" HorizontalAlignment="Center" Margin="1127,250,393,430" VerticalAlignment="Center" Width="400" Height="400" BorderBrush="#00707070" Foreground="#00000000" Style="{DynamicResource ImageButton}" Click="shangchuan_Click">
+        <Button x:Name="shangchuan" Panel.ZIndex="1" Content="" HorizontalAlignment="Center" Margin="1062,250,458,430" VerticalAlignment="Center" Width="400" Height="400" BorderBrush="#00707070" Foreground="#00000000" Style="{DynamicResource ImageButton}" Click="shangchuan_Click">
             <Button.Background>
                 <ImageBrush ImageSource="images/图标/从相册中选择.png"/>
             </Button.Background>
