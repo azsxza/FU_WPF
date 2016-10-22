@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FU_UWP"
         mc:Ignorable="d"
-        Title="MainWindow" Height="1080" Width="1920" WindowState="Normal"
+        Title="MainWindow" Height="1080" Width="1920" WindowState="Normal" Topmost="True"
         ResizeMode="NoResize" WindowStyle="None" Left="0.0" Top="0.0" KeyUp="Window_KeyUp">
     <Window.Resources>
         <Style x:Key="FocusVisual">
@@ -113,6 +113,11 @@
                 </ScrollViewer>
             </Grid>
         </Grid>
+        <Button x:Name="chexiao" Panel.ZIndex="1" Content="" HorizontalAlignment="Center" Margin="1470,1080,250,-200" VerticalAlignment="Center" Width="200" Height="200" BorderBrush="#00707070" Foreground="#00000000" Style="{DynamicResource ImageButton}">
+            <Button.Background>
+                <ImageBrush ImageSource="images/图标/撤销.png"/>
+            </Button.Background>
+        </Button>
 
     </Grid>
 </Window>

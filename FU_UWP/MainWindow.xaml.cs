@@ -50,7 +50,6 @@ namespace FU_UWP
             cap.SetCaptureProperty(CapProp.FrameWidth, 960);
             cap.ImageGrabbed += Cap_ImageGrabbed;
             cap.Stop();
-
         }
 
         //退出
@@ -163,7 +162,11 @@ namespace FU_UWP
                 anim5.Duration = TimeSpan.FromSeconds(0.36);
                 choose.BeginAnimation(MarginProperty, anim5);
 
-
+                ThicknessAnimation anim4 = new ThicknessAnimation();
+                anim4.From = new Thickness(1470, 854, 250, 26);
+                anim4.To = new Thickness(1470, 1080, 250, -200);
+                anim4.Duration = TimeSpan.FromSeconds(0.36);
+                chexiao.BeginAnimation(MarginProperty, anim4);
             }
             else
             {
@@ -251,6 +254,11 @@ namespace FU_UWP
                 anim5.Duration = TimeSpan.FromSeconds(0.36);
                 choose.BeginAnimation(MarginProperty, anim5);
 
+                ThicknessAnimation anim6 = new ThicknessAnimation();
+                anim6.From = new Thickness(1470, 1080, 250, -200);
+                anim6.To = new Thickness(1470, 854, 250, 26);
+                anim6.Duration = TimeSpan.FromSeconds(0.36);
+                chexiao.BeginAnimation(MarginProperty, anim6);
 
                 istakeaphoto = true;
                 iscongpaiin = false;
@@ -368,6 +376,11 @@ namespace FU_UWP
                 anim5.Duration = TimeSpan.FromSeconds(0.36);
                 choose.BeginAnimation(MarginProperty, anim5);
 
+                ThicknessAnimation anim6 = new ThicknessAnimation();
+                anim6.From = new Thickness(1470, 1080, 250, -200);
+                anim6.To = new Thickness(1470, 854, 250, 26);
+                anim6.Duration = TimeSpan.FromSeconds(0.36);
+                chexiao.BeginAnimation(MarginProperty, anim6);
 
                 istakeaphoto = true;
                 iscongpaiin = false;
@@ -415,5 +428,8 @@ namespace FU_UWP
 
             }
         }
+
+
+
     }
 }
