@@ -30,3 +30,5 @@ C:\Users\chengk\Desktop\FU_WPF\FU_UWP\obj\Debug\FU_UWP.csproj.GenerateResource.C
 D:\FU_WPF\FU_UWP\bin\Debug\Emgu.CV.World.dll
 D:\FU_WPF\FU_UWP\bin\Debug\Emgu.CV.World.xml
 C:\Users\chengk\Desktop\FU_WPF\FU_UWP\bin\Debug\Emgu.CV.World.xml
+D:\FU_WPF\FU_UWP\obj\Debug\dayintishi.g.cs
+D:\FU_WPF\FU_UWP\obj\Debug\dayintishi.baml

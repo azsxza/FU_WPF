@@ -59,6 +59,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="dayintishi.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -66,6 +70,9 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="dayintishi.xaml.cs">
+      <DependentUpon>dayintishi.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
@@ -137,6 +144,18 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="images\图标\返回2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\图标\打印.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\图标\上传.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\图标\发送电子版.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\图标\撤销.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

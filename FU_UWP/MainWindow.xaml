@@ -69,7 +69,7 @@
         </Button>
         <Button x:Name="shangchuan" Panel.ZIndex="1" Content="" HorizontalAlignment="Center" Margin="1062,250,458,430" VerticalAlignment="Center" Width="400" Height="400" BorderBrush="#00707070" Foreground="#00000000" Style="{DynamicResource ImageButton}" Click="shangchuan_Click">
             <Button.Background>
-                <ImageBrush ImageSource="images/图标/从相册中选择.png"/>
+                <ImageBrush ImageSource="images/图标/上传.png"/>
             </Button.Background>
         </Button>
         <Image x:Name="image1" HorizontalAlignment="Left" Height="22" Margin="0,438,0,0" VerticalAlignment="Top" Width="1920" Source="images/组成部分/小蓝条.png" Stretch="Fill"/>
@@ -84,6 +84,35 @@
                 <ImageBrush ImageSource="images/图标/重拍.png"/>
             </Button.Background>
         </Button>
+        <Grid x:Name="choose" HorizontalAlignment="Left" Height="1080" Margin="266,-1080,0,0" VerticalAlignment="Top" Width="310" Background="#FFBFC1CC">
+            <Grid HorizontalAlignment="Left" Height="1080" VerticalAlignment="Top" Width="310">
+                <Button x:Name="paizhao_Copy" Panel.ZIndex="1" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Width="265" Height="265" BorderBrush="#00707070" Foreground="#00000000" Style="{DynamicResource ImageButton}" Margin="20,0,0,0">
+                    <Button.Background>
+                        <ImageBrush ImageSource="images/图标/风格模仿.png"/>
+                    </Button.Background>
+                </Button>
+                <Button x:Name="paizhao_Copy1" Panel.ZIndex="1" Content="" HorizontalAlignment="Left" Margin="20,265,0,0" VerticalAlignment="Top" Width="265" Height="265" BorderBrush="#00707070" Foreground="#00000000" Style="{DynamicResource ImageButton}">
+                    <Button.Background>
+                        <ImageBrush ImageSource="images/图标/滤镜.png"/>
+                    </Button.Background>
+                </Button>
+                <Button x:Name="paizhao_Copy2" Panel.ZIndex="1" Content="" HorizontalAlignment="Left" Margin="20,530,0,0" VerticalAlignment="Top" Width="265" Height="265" BorderBrush="#00707070" Foreground="#00000000" Style="{DynamicResource ImageButton}">
+                    <Button.Background>
+                        <ImageBrush ImageSource="images/图标/局部调整.png"/>
+                    </Button.Background>
+                </Button>
+                <Button x:Name="paizhao_Copy3" Panel.ZIndex="1" Content="" HorizontalAlignment="Left" Margin="20,795,0,0" VerticalAlignment="Top" Width="265" Height="265" BorderBrush="#00707070" Foreground="#00000000" Style="{DynamicResource ImageButton}">
+                    <Button.Background>
+                        <ImageBrush ImageSource="images/图标/贴纸.png"/>
+                    </Button.Background>
+                </Button>
+            </Grid>
+            <Grid HorizontalAlignment="Left" Height="1070" Margin="315,0,0,0" VerticalAlignment="Top" Width="310">
+                <ScrollViewer HorizontalAlignment="Left" Height="1070" VerticalAlignment="Top" Width="310">
+                    <StackPanel Height="100" Width="300"/>
+                </ScrollViewer>
+            </Grid>
+        </Grid>
 
     </Grid>
 </Window>
