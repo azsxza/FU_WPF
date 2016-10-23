@@ -18,6 +18,7 @@ using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace FU_UWP
 {
@@ -353,6 +354,8 @@ namespace FU_UWP
                 anim6.Duration = TimeSpan.FromSeconds(0.36);
                 chexiao.BeginAnimation(MarginProperty, anim6);
 
+                chexiao2.Visibility = Visibility.Visible;
+
                 istakeaphoto = true;
                 iscongpaiin = false;
                 isdone = false;
@@ -386,6 +389,8 @@ namespace FU_UWP
                     istakeaphoto = false;
                     iscongpaiin = true;
                 }
+
+                chexiao2.Visibility = Visibility.Hidden;
             }
         }
 
@@ -426,6 +431,7 @@ namespace FU_UWP
                 ((ImageBrush)shangchuan.Background).ImageSource = new BitmapImage(new Uri(@"..\..\images\图标\打印.png", UriKind.Relative));
                 ((ImageBrush)chongpai.Background).ImageSource = new BitmapImage(new Uri(@"..\..\images\图标\发送电子版.png", UriKind.Relative));
                 isdone = true;
+                chexiao2.Visibility = Visibility.Hidden;
             }
             //如果重拍按钮在界面中，则该按钮的功能为完成
             else if(iscongpaiin)
@@ -476,6 +482,8 @@ namespace FU_UWP
                 anim6.Duration = TimeSpan.FromSeconds(0.36);
                 chexiao.BeginAnimation(MarginProperty, anim6);
 
+                chexiao2.Visibility = Visibility.Visible;
+
                 istakeaphoto = true;
                 iscongpaiin = false;
             }
@@ -484,7 +492,36 @@ namespace FU_UWP
             {
                 tt = capframe.Bitmap;
                 cap.Stop();
-                //cap.Dispose();
+
+                #region 拍照时的闪烁
+                shan.Visibility = Visibility.Visible;
+                System.Timers.Timer tmr = new System.Timers.Timer(1000 * 0.25);
+                bool once = false;
+                tmr.Elapsed += delegate
+                {
+                    if (!once)
+                    {
+                        Dispatcher.Invoke(DispatcherPriority.Normal, (Action)delegate ()
+                      {
+                          DoubleAnimation daV6 = new DoubleAnimation(1, 0, new Duration(TimeSpan.FromSeconds(0.25)));
+                          shan.BeginAnimation(OpacityProperty, daV6);
+                      });
+                        once = true;
+                    }
+                    else
+                    {
+                        Dispatcher.Invoke(DispatcherPriority.Normal, (Action)delegate ()
+                        {
+                            shan.Visibility = Visibility.Hidden;
+                        });
+                        tmr.Stop();
+                    }
+                };
+                DoubleAnimation daV5 = new DoubleAnimation(0, 1, new Duration(TimeSpan.FromSeconds(0.25)));
+                shan.BeginAnimation(OpacityProperty, daV5);
+                tmr.Start();
+                #endregion
+
                 tt.Save(ms, System.Drawing.Imaging.ImageFormat.Bmp);
                 byte[] bytes = ms.GetBuffer();
                 BitmapImage bitmap = new BitmapImage();
@@ -525,12 +562,6 @@ namespace FU_UWP
 
         public void chooselistmoveout(ScrollViewer sc)
         {
-            //ThicknessAnimation anim = new ThicknessAnimation();
-            //anim.From = new Thickness(0, 0, 0, 0);
-            //anim.To = new Thickness(-312, 0, 0, 0);
-            //anim.Duration = TimeSpan.FromSeconds(0.36);
-            //choose1.BeginAnimation(MarginProperty, anim);
-
             ThicknessAnimation anim2 = new ThicknessAnimation();
             anim2.From = new Thickness(315, 0, 0, 0);
             anim2.To = new Thickness(0, 0, 0, 0);
@@ -539,12 +570,6 @@ namespace FU_UWP
         }
         public void chooselistmoveoin(ScrollViewer sc)
         {
-            //ThicknessAnimation anim = new ThicknessAnimation();
-            //anim.From = new Thickness(-312, 0, 0, 0);
-            //anim.To = new Thickness(0, 0, 0, 0);
-            //anim.Duration = TimeSpan.FromSeconds(0.36);
-            //choose1.BeginAnimation(MarginProperty, anim);
-
             ThicknessAnimation anim2 = new ThicknessAnimation();
             anim2.From = new Thickness(0, 0, 0, 0);
             anim2.To = new Thickness(315, 0, 0, 0);
@@ -554,10 +579,18 @@ namespace FU_UWP
         private void Algorithomlist_click(object sender, RoutedEventArgs e)
         {
             chooselistmoveout(fenggemofang);
+            DoubleAnimation daV6 = new DoubleAnimation(0, 1, new Duration(TimeSpan.FromSeconds(0.25)));
+            chexiao2.BeginAnimation(OpacityProperty, daV6);
         }
         private void SCManipulationBoundaryFeedback(object sender, ManipulationBoundaryFeedbackEventArgs e)
         {
             e.Handled = true;
+        }
+        private void chexiao2_Click(object sender, RoutedEventArgs e)
+        {
+            chooselistmoveoin(fenggemofang);
+            DoubleAnimation daV6 = new DoubleAnimation(1, 0, new Duration(TimeSpan.FromSeconds(0.25)));
+            chexiao2.BeginAnimation(OpacityProperty, daV6);
         }
     }
 }

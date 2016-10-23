@@ -34,4 +34,3 @@ D:\FU_WPF\FU_UWP\obj\Debug\dayintishi.g.cs
 D:\FU_WPF\FU_UWP\obj\Debug\dayintishi.baml
 D:\FU_WPF\FU_UWP\obj\Debug\ImageShow.g.cs
 D:\FU_WPF\FU_UWP\obj\Debug\ImageShow.baml
-D:\FU_WPF\FU_UWP\obj\Debug\GeneratedInternalTypeHelper.g.cs
