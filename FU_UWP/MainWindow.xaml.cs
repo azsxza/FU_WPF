@@ -6,6 +6,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -40,7 +41,7 @@ namespace FU_UWP
         public MainWindow()
         {
             InitializeComponent();
-
+            onstart();
             //初始化Emgucv和接收摄像头图像的Mat
             CvInvoke.UseOpenCL = true;
             capframe = new Mat();
@@ -50,6 +51,81 @@ namespace FU_UWP
             cap.SetCaptureProperty(CapProp.FrameWidth, 960);
             cap.ImageGrabbed += Cap_ImageGrabbed;
             cap.Stop();
+        }
+
+        void onstart()
+        {
+            #region 初始化算法列表
+            #region 风格模仿
+            StreamReader sr = new StreamReader("..\\风格模仿.txt", Encoding.Default);
+            String line;
+            while ((line = sr.ReadLine()) != null)
+            {
+                ImageShow Is = new ImageShow();
+                Is.image.Source = new BitmapImage(new Uri(@"..\..\models\" + line + ".jpg", UriKind.Relative));
+                Is.textBlock.Text = line;
+                Is.MouseDown += fengetrans;
+                stack_fenggemofang.Children.Add(Is);
+                stack_fenggemofang.Height += 300;
+            }
+            #endregion
+            #endregion
+        }
+
+        private void fengetrans(object sender, MouseButtonEventArgs e)
+        {
+            fenggebianhuan(((ImageShow)sender).textBlock.Text);
+        }
+
+        void fenggebianhuan(string name)
+        {
+            new Thread(() =>
+            {
+                JpegBitmapEncoder encoder = new JpegBitmapEncoder();
+                encoder.Frames.Add(BitmapFrame.Create(MainBitmap));
+                FileStream files = new FileStream("1.jpg", FileMode.Create, FileAccess.ReadWrite);
+                encoder.Save(files);
+                files.Close();
+                System.Diagnostics.Process p = new System.Diagnostics.Process();
+                p.StartInfo.FileName = "cmd.exe";
+                p.StartInfo.UseShellExecute = false;    //是否使用操作系统shell启动
+                p.StartInfo.RedirectStandardInput = true;//接受来自调用程序的输入信息
+                p.StartInfo.RedirectStandardOutput = true;//由调用程序获取输出信息
+                p.StartInfo.RedirectStandardError = true;//重定向标准错误输出
+                p.StartInfo.CreateNoWindow = true;//不显示程序窗口
+                p.Start();//启动程序
+
+                //向cmd窗口发送输入信息
+                p.StandardInput.WriteLine("python video.py 1.jpg -m models/" + name + ".model" + "&exit");
+                p.WaitForExit();//等待程序执行完退出进程
+                p.Close();
+
+
+                Dispatcher.Invoke(new Action(() =>
+                {
+                    BitmapImage tmp = GetImage(System.IO.Directory.GetCurrentDirectory() + "\\out.jpg");
+                    image.Source = tmp;
+                }));
+                File.Delete("out.jpg");
+            }).Start();
+        }
+
+        public static BitmapImage GetImage(string imagePath)
+        {
+            BitmapImage bitmap = new BitmapImage();
+            if (File.Exists(imagePath))
+            {
+                bitmap.BeginInit();
+                bitmap.CacheOption = BitmapCacheOption.OnLoad;
+
+                using (Stream ms = new MemoryStream(File.ReadAllBytes(imagePath)))
+                {
+                    bitmap.StreamSource = ms;
+                    bitmap.EndInit();
+                    bitmap.Freeze();
+                }
+            }
+            return bitmap;
         }
 
         //退出
@@ -447,7 +523,41 @@ namespace FU_UWP
             }
         }
 
+        public void chooselistmoveout(ScrollViewer sc)
+        {
+            //ThicknessAnimation anim = new ThicknessAnimation();
+            //anim.From = new Thickness(0, 0, 0, 0);
+            //anim.To = new Thickness(-312, 0, 0, 0);
+            //anim.Duration = TimeSpan.FromSeconds(0.36);
+            //choose1.BeginAnimation(MarginProperty, anim);
 
+            ThicknessAnimation anim2 = new ThicknessAnimation();
+            anim2.From = new Thickness(315, 0, 0, 0);
+            anim2.To = new Thickness(0, 0, 0, 0);
+            anim2.Duration = TimeSpan.FromSeconds(0.36);
+            sc.BeginAnimation(MarginProperty, anim2);
+        }
+        public void chooselistmoveoin(ScrollViewer sc)
+        {
+            //ThicknessAnimation anim = new ThicknessAnimation();
+            //anim.From = new Thickness(-312, 0, 0, 0);
+            //anim.To = new Thickness(0, 0, 0, 0);
+            //anim.Duration = TimeSpan.FromSeconds(0.36);
+            //choose1.BeginAnimation(MarginProperty, anim);
 
+            ThicknessAnimation anim2 = new ThicknessAnimation();
+            anim2.From = new Thickness(0, 0, 0, 0);
+            anim2.To = new Thickness(315, 0, 0, 0);
+            anim2.Duration = TimeSpan.FromSeconds(0.36);
+            sc.BeginAnimation(MarginProperty, anim2);
+        }
+        private void Algorithomlist_click(object sender, RoutedEventArgs e)
+        {
+            chooselistmoveout(fenggemofang);
+        }
+        private void SCManipulationBoundaryFeedback(object sender, ManipulationBoundaryFeedbackEventArgs e)
+        {
+            e.Handled = true;
+        }
     }
 }

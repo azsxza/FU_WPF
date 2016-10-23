@@ -24,5 +24,17 @@ namespace FU_UWP
         {
             InitializeComponent();
         }
+
+        #region 正常状态下显示的背景图片  
+        public ImageSource ImageSourceNormal
+        {
+            get { return (ImageSource)GetValue(ImageSourceNormalProperty); }
+            set { SetValue(ImageSourceNormalProperty, value); }
+        }
+
+        public static readonly DependencyProperty ImageSourceNormalProperty =
+            DependencyProperty.Register("ImageSourceNormal", typeof(ImageSource), typeof(ImageShow),
+            new PropertyMetadata(new BitmapImage(new Uri(@"..\..\images\图标\拍摄.png", UriKind.Relative))));
+        #endregion
     }
 }
