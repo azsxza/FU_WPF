@@ -111,6 +111,7 @@ namespace FU_UWP
         //返回上一级使用
         void MainPageUpdate2()
         {
+            //重拍按钮在界面中时说明在拍照界面
             if(iscongpaiin)
             {
                 ThicknessAnimation anim5 = new ThicknessAnimation();
@@ -120,6 +121,7 @@ namespace FU_UWP
                 chongpai.BeginAnimation(MarginProperty, anim5);
                 iscongpaiin = false;
             }
+            //拍好照了，说明在处理界面,同时 切换到打印的确认界面也用这个
             if(istakeaphoto)
             {
                 ThicknessAnimation anim6 = new ThicknessAnimation();
@@ -168,6 +170,7 @@ namespace FU_UWP
                 anim4.Duration = TimeSpan.FromSeconds(0.36);
                 chexiao.BeginAnimation(MarginProperty, anim4);
             }
+            //其他情况 在拍照界面
             else
             {
                 ThicknessAnimation anim = new ThicknessAnimation();
@@ -210,8 +213,22 @@ namespace FU_UWP
             }
         }
 
+        //在最后完成后返回到主页时使用
+        public void BacktoMain()
+        {
+            isinpaishe = false;
+            iscongpaiin = true;
+            istakeaphoto = false;
+            isdone = false;
+            MainPageUpdate2();
+            ((ImageBrush)paizhao.Background).ImageSource = new BitmapImage(new Uri(@"..\..\images\图标\拍照.png", UriKind.Relative));
+            ((ImageBrush)shangchuan.Background).ImageSource = new BitmapImage(new Uri(@"..\..\images\图标\上传.png", UriKind.Relative));
+            ((ImageBrush)chongpai.Background).ImageSource = new BitmapImage(new Uri(@"..\..\images\图标\重拍.png", UriKind.Relative));
+        }
+
         private void paizhao_Click(object sender, RoutedEventArgs e)
         {
+            //在打印确定页面，功能为返回上一级
             if(isdone)
             {
                 ThicknessAnimation anim = new ThicknessAnimation();
@@ -324,6 +341,7 @@ namespace FU_UWP
             {
                 var tmp = new dayintishi();
                 tmp.ShowDialog();
+                BacktoMain();
             }
             //拍过照了，说明在处理的页面
             else if(istakeaphoto)

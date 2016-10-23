@@ -66,7 +66,8 @@
                     <ImageBrush ImageSource="images/图标/×.png"/>
                 </Button.Background>
             </Button>
-            <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="23" Margin="206,142,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="254" GotFocus="textBox_GotFocus" MouseDown="textBox_MouseDown"/>
+            <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="23" Margin="224,154,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="254" GotFocus="textBox_GotFocus" MouseDown="textBox_MouseDown"/>
+            <Button x:Name="button1" Content="Button" HorizontalAlignment="Left" Margin="254,230,0,0" VerticalAlignment="Top" Width="224" Height="73"/>
         </Grid>
     </Grid>
 </Window>

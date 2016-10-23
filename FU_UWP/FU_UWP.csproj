@@ -63,6 +63,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="ImageShow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -73,6 +77,9 @@
     </Compile>
     <Compile Include="dayintishi.xaml.cs">
       <DependentUpon>dayintishi.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ImageShow.xaml.cs">
+      <DependentUpon>ImageShow.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
