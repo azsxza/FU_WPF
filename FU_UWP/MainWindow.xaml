@@ -133,7 +133,7 @@
                 <StackPanel x:Name="stack_tiaozheng" Height="0" Width="300"/>
             </ScrollViewer>
             <ScrollViewer x:Name="tiezhi" PanningMode="Both" ManipulationBoundaryFeedback="SCManipulationBoundaryFeedback" HorizontalAlignment="Left" Height="1070" VerticalAlignment="Top" Width="310" Margin="310,0,0,0">
-                <StackPanel x:Name="stack_tiezhi" Height="0" Width="300"/>
+                <StackPanel x:Name="stack_tiezhi" Height="0" Width="300" Background="#FFBFC1CC"/>
             </ScrollViewer>
         </Grid>
         <Button x:Name="chexiao" Panel.ZIndex="1" Content="" HorizontalAlignment="Center" Margin="1470,1080,250,-200" VerticalAlignment="Center" Width="200" Height="200" BorderBrush="#00707070" Foreground="#00000000" Style="{DynamicResource ImageButton}">
@@ -142,7 +142,7 @@
             </Button.Background>
         </Button>
         <Grid x:Name="shan" Visibility="Hidden" Opacity="0" HorizontalAlignment="Left" Height="900" Margin="360,90,0,0" VerticalAlignment="Top" Width="1200" Background="#BF000000"/>
-        <Button x:Name="chexiao2" Panel.ZIndex="1" Visibility="Hidden" Opacity="0" Content="" HorizontalAlignment="Left" Margin="576,51,0,0" VerticalAlignment="Top" Width="100" Height="100" BorderBrush="#00707070" Foreground="#00000000" Style="{DynamicResource ImageButton}" Click="chexiao2_Click">
+        <Button x:Name="chexiao2" Panel.ZIndex="1" Visibility="Visible" Opacity="0" Content="" HorizontalAlignment="Left" Margin="462,10,0,0" VerticalAlignment="Top" Width="100" Height="100" BorderBrush="#00707070" Foreground="#00000000" Style="{DynamicResource ImageButton}" Click="chexiao2_Click">
             <Button.Background>
                 <ImageBrush ImageSource="images/撤销.png"/>
             </Button.Background>

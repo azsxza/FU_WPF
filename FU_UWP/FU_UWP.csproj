@@ -196,6 +196,23 @@
   <ItemGroup>
     <Resource Include="images\QQ截图20161025211605.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\贴纸\兔耳朵.png" />
+    <Resource Include="images\贴纸\冷漠.png" />
+    <Resource Include="images\贴纸\害羞脸.png" />
+    <Resource Include="images\贴纸\恼怒.png" />
+    <Resource Include="images\贴纸\柯基.png" />
+    <Resource Include="images\贴纸\滑稽.png" />
+    <Resource Include="images\贴纸\烦躁.png" />
+    <Resource Include="images\贴纸\爱.png" />
+    <Resource Include="images\贴纸\狗.png" />
+    <Resource Include="images\贴纸\猫.png" />
+    <Resource Include="images\贴纸\老鼠.png" />
+    <Resource Include="images\贴纸\萨摩耶.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\psb.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

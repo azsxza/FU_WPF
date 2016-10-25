@@ -33,7 +33,6 @@ namespace FU_UWP
         Capture cap;
         Mat capframe;
         Bitmap tt;
-        Bitmap mini;
 
         bool isinpaishe = false;
         bool iscongpaiin = false;
@@ -81,6 +80,18 @@ namespace FU_UWP
                 Is.MouseDown += lvjingtrans;
                 stack_lvjing.Children.Add(Is);
                 stack_lvjing.Height += 300;
+            }
+            #endregion
+            #region 贴纸
+            StreamReader sr3 = new StreamReader("..\\贴纸.txt", Encoding.Default);
+            while ((line = sr3.ReadLine()) != null)
+            {
+                ImageShow Is = new ImageShow();
+                Is.image.Source = new BitmapImage(new Uri(@"..\..\images\贴纸\" + line + ".png", UriKind.Relative));
+                Is.textBlock.Text = line;
+                //Is.MouseDown += lvjingtrans;
+                stack_tiezhi.Children.Add(Is);
+                stack_tiezhi.Height += 300;
             }
             #endregion
             #endregion
@@ -507,6 +518,7 @@ namespace FU_UWP
             //如果在拍摄中，而且重拍按钮不在界面中，则该按钮功能为拍摄
             else if(isinpaishe)
             {
+                capframe = CvInvoke.Imread(@"..\..\images\psb.jpg", LoadImageType.AnyColor);
                 tt = capframe.Bitmap;
                 cap.Stop();
 
