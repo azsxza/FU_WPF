@@ -1,0 +1,67 @@
+﻿  Filter.cpp
+c:\users\chengk\desktop\fu_algorithm\imagerender\global.h(8): fatal error C1083: 无法打开包括文件: “ycapture.h”: No such file or directory
+  watercolor.cpp
+c:\users\chengk\desktop\fu_algorithm\imagerender\global.h(8): fatal error C1083: 无法打开包括文件: “ycapture.h”: No such file or directory
+  shan.cpp
+c:\users\chengk\desktop\fu_algorithm\imagerender\global.h(8): fatal error C1083: 无法打开包括文件: “ycapture.h”: No such file or directory
+  SetSaturation.cpp
+c:\users\chengk\desktop\fu_algorithm\imagerender\global.h(8): fatal error C1083: 无法打开包括文件: “ycapture.h”: No such file or directory
+  sethue.cpp
+c:\users\chengk\desktop\fu_algorithm\imagerender\global.h(8): fatal error C1083: 无法打开包括文件: “ycapture.h”: No such file or directory
+  Quban.cpp
+c:\users\chengk\desktop\fu_algorithm\imagerender\global.h(8): fatal error C1083: 无法打开包括文件: “ycapture.h”: No such file or directory
+  PencilDraw.cpp
+c:\users\chengk\desktop\fu_algorithm\imagerender\global.h(8): fatal error C1083: 无法打开包括文件: “ycapture.h”: No such file or directory
+  oilpaint.cpp
+c:\users\chengk\desktop\fu_algorithm\imagerender\global.h(8): fatal error C1083: 无法打开包括文件: “ycapture.h”: No such file or directory
+  mtxxoilpaint.cpp
+c:\users\chengk\desktop\fu_algorithm\imagerender\global.h(8): fatal error C1083: 无法打开包括文件: “ycapture.h”: No such file or directory
+  mtxxlifesketch.cpp
+c:\users\chengk\desktop\fu_algorithm\imagerender\global.h(8): fatal error C1083: 无法打开包括文件: “ycapture.h”: No such file or directory
+  mtxxcq.cpp
+c:\users\chengk\desktop\fu_algorithm\imagerender\global.h(8): fatal error C1083: 无法打开包括文件: “ycapture.h”: No such file or directory
+  mosaic.cpp
+c:\users\chengk\desktop\fu_algorithm\imagerender\global.h(8): fatal error C1083: 无法打开包括文件: “ycapture.h”: No such file or directory
+  Maoboli.cpp
+c:\users\chengk\desktop\fu_algorithm\imagerender\global.h(8): fatal error C1083: 无法打开包括文件: “ycapture.h”: No such file or directory
+  LowPoly.cpp
+c:\users\chengk\desktop\fu_algorithm\imagerender\global.h(8): fatal error C1083: 无法打开包括文件: “ycapture.h”: No such file or directory
+  ascii.cpp
+c:\users\chengk\desktop\fu_algorithm\imagerender\global.h(8): fatal error C1083: 无法打开包括文件: “ycapture.h”: No such file or directory
+  linedrawing.cpp
+c:\users\chengk\desktop\fu_algorithm\imagerender\global.h(8): fatal error C1083: 无法打开包括文件: “ycapture.h”: No such file or directory
+  line.cpp
+c:\users\chengk\desktop\fu_algorithm\imagerender\global.h(8): fatal error C1083: 无法打开包括文件: “ycapture.h”: No such file or directory
+  GTA5Style.cpp
+c:\users\chengk\desktop\fu_algorithm\imagerender\global.h(8): fatal error C1083: 无法打开包括文件: “ycapture.h”: No such file or directory
+  GetFaceKeyPoint.cpp
+c:\users\chengk\desktop\fu_algorithm\imagerender\global.h(8): fatal error C1083: 无法打开包括文件: “ycapture.h”: No such file or directory
+  fenbi.cpp
+c:\users\chengk\desktop\fu_algorithm\imagerender\global.h(8): fatal error C1083: 无法打开包括文件: “ycapture.h”: No such file or directory
+  正在生成代码...
+  正在编译...
+  edgetangentflow.cpp
+c:\users\chengk\desktop\fu_algorithm\imagerender\global.h(8): fatal error C1083: 无法打开包括文件: “ycapture.h”: No such file or directory
+  dermabrasion.cpp
+c:\users\chengk\desktop\fu_algorithm\imagerender\global.h(8): fatal error C1083: 无法打开包括文件: “ycapture.h”: No such file or directory
+  cvfilter.cpp
+c:\users\chengk\desktop\fu_algorithm\imagerender\global.h(8): fatal error C1083: 无法打开包括文件: “ycapture.h”: No such file or directory
+  curve.cpp
+c:\users\chengk\desktop\fu_algorithm\imagerender\global.h(8): fatal error C1083: 无法打开包括文件: “ycapture.h”: No such file or directory
+  colorspace.cpp
+c:\users\chengk\desktop\fu_algorithm\imagerender\global.h(8): fatal error C1083: 无法打开包括文件: “ycapture.h”: No such file or directory
+  ColorReduce.cpp
+c:\users\chengk\desktop\fu_algorithm\imagerender\global.h(8): fatal error C1083: 无法打开包括文件: “ycapture.h”: No such file or directory
+  colorbalance.cpp
+c:\users\chengk\desktop\fu_algorithm\imagerender\global.h(8): fatal error C1083: 无法打开包括文件: “ycapture.h”: No such file or directory
+  coherencefilter.cpp
+c:\users\chengk\desktop\fu_algorithm\imagerender\global.h(8): fatal error C1083: 无法打开包括文件: “ycapture.h”: No such file or directory
+  carving.cpp
+c:\users\chengk\desktop\fu_algorithm\imagerender\global.h(8): fatal error C1083: 无法打开包括文件: “ycapture.h”: No such file or directory
+  Cartoon2.cpp
+c:\users\chengk\desktop\fu_algorithm\imagerender\global.h(8): fatal error C1083: 无法打开包括文件: “ycapture.h”: No such file or directory
+  cartoon.cpp
+c:\users\chengk\desktop\fu_algorithm\imagerender\global.h(8): fatal error C1083: 无法打开包括文件: “ycapture.h”: No such file or directory
+  CaptureSender.cpp
+c:\users\chengk\desktop\fu_algorithm\imagerender\global.h(8): fatal error C1083: 无法打开包括文件: “ycapture.h”: No such file or directory
+  正在生成代码...
