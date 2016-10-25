@@ -48,6 +48,8 @@ namespace FU_UWP
         [DllImport("ImageRender.dll", CallingConvention = CallingConvention.Cdecl)]
         public extern static void Fenbi(byte* src, byte* dest, int height, int width, int stride);
 
+        [DllImport("ImageRender.dll", CallingConvention = CallingConvention.Cdecl)]
+        public extern static void Line(byte* src, byte* dest, int height, int width, int stride);
 
 
 
@@ -57,7 +59,37 @@ namespace FU_UWP
         [DllImport("ImageRender.dll", CallingConvention = CallingConvention.Cdecl)]
         public extern static void Dermabrasion(byte* src, byte* dest, int width, int height, int stride, int ks, int opacity, int white);
 
+        public static BitmapImage fun(Bitmap bi, string name)
+        {
+            Bitmap bmp = (Bitmap)bi.Clone();
+            Bitmap dest = (Bitmap)bmp.Clone();
+            var adata = bmp.LockBits(new Rectangle(0, 0, bmp.Width, bmp.Height), System.Drawing.Imaging.ImageLockMode.ReadWrite, bmp.PixelFormat);
+            var data = dest.LockBits(new Rectangle(0, 0, dest.Width, dest.Height), System.Drawing.Imaging.ImageLockMode.ReadWrite, dest.PixelFormat);
+            var src = (byte*)adata.Scan0;
+            var ImageStride = adata.Stride;
+            var output = (byte*)data.Scan0;
+            bmp.UnlockBits(adata);
+            dest.UnlockBits(data);
 
+            switch (name)
+            {
+                case "复古": Worlde(src, output, bmp.Height, bmp.Width, ImageStride); break;
+                case "雕刻": Carving(src, output, bmp.Height, bmp.Width, ImageStride); break;
+                case "彩色素描": MtxxCQ(src, output, bmp.Width, bmp.Height, ImageStride); break;
+                case "GTA5Style": GTA5Style(src, output, bmp.Width, bmp.Height, ImageStride); break;
+                case "卡通": Cartoon(src, output, bmp.Width, bmp.Height, ImageStride); break;
+                case "抽象画": CoherenceFilter(src, output, bmp.Width, bmp.Height, ImageStride); break;
+                case "线条": LineDrawing(src, output, bmp.Width, bmp.Height, ImageStride); break;
+                case "油画": OilPaint(src, output, bmp.Width, bmp.Height, ImageStride); break;
+                case "油画2": MtxxOilPaint(src, output, bmp.Width, bmp.Height, ImageStride); break;
+                case "素描": MtxxLifeSketch(src, output, bmp.Width, bmp.Height, ImageStride); break;
+                case "水彩": WaterColor(src, output, bmp.Width, bmp.Height, ImageStride); break;
+                case "粉笔": Fenbi(src, output, bmp.Width, bmp.Height, ImageStride); break;
+                case "线条2": Line(src, output, bmp.Width, bmp.Height, ImageStride); break;
+            }
+
+            return Bitmap2BitmapImage(dest);
+        }
 
         public static BitmapImage fun(BitmapImage bi, string name)
         {
@@ -73,18 +105,19 @@ namespace FU_UWP
 
             switch (name)
             {
-                case "Worlde": Worlde(src, output, bmp.Height, bmp.Width, ImageStride); break;
-                case "Carving": Carving(src, output, bmp.Height, bmp.Width, ImageStride); break;
-                case "MtxxCQ": MtxxCQ(src, output, bmp.Width, bmp.Height, ImageStride); break;
+                case "复古": Worlde(src, output, bmp.Height, bmp.Width, ImageStride); break;
+                case "雕刻": Carving(src, output, bmp.Height, bmp.Width, ImageStride); break;
+                case "彩色素描": MtxxCQ(src, output, bmp.Width, bmp.Height, ImageStride); break;
                 case "GTA5Style": GTA5Style(src, output, bmp.Width, bmp.Height, ImageStride); break;
-                case "Cartoon": Cartoon(src, output, bmp.Width, bmp.Height, ImageStride); break;
-                case "CoherenceFilter": CoherenceFilter(src, output, bmp.Width, bmp.Height, ImageStride); break;
-                case "LineDrawing": LineDrawing(src, output, bmp.Width, bmp.Height, ImageStride); break;
-                case "OilPaint": OilPaint(src, output, bmp.Width, bmp.Height, ImageStride); break;
-                case "MtxxOilPaint": MtxxOilPaint(src, output, bmp.Width, bmp.Height, ImageStride); break;
-                case "MtxxLifeSketch": MtxxLifeSketch(src, output, bmp.Width, bmp.Height, ImageStride); break;
-                case "WaterColor": WaterColor(src, output, bmp.Width, bmp.Height, ImageStride); break;
-                case "Fenbi": Fenbi(src, output, bmp.Width, bmp.Height, ImageStride); break;
+                case "卡通": Cartoon(src, output, bmp.Width, bmp.Height, ImageStride); break;
+                case "抽象画": CoherenceFilter(src, output, bmp.Width, bmp.Height, ImageStride); break;
+                case "线条": LineDrawing(src, output, bmp.Width, bmp.Height, ImageStride); break;
+                case "油画": OilPaint(src, output, bmp.Width, bmp.Height, ImageStride); break;
+                case "油画2": MtxxOilPaint(src, output, bmp.Width, bmp.Height, ImageStride); break;
+                case "素描": MtxxLifeSketch(src, output, bmp.Width, bmp.Height, ImageStride); break;
+                case "水彩": WaterColor(src, output, bmp.Width, bmp.Height, ImageStride); break;
+                case "粉笔": Fenbi(src, output, bmp.Width, bmp.Height, ImageStride); break;
+                case "线条2": Line(src, output, bmp.Width, bmp.Height, ImageStride); break;
             }
 
             return Bitmap2BitmapImage(dest);

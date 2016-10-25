@@ -57,10 +57,18 @@ Mat Line (Mat aaa)
 	return c;
 }
 
-void Line (uchar* src, uchar*dest, int width, int height)
+void Line (uchar* src, uchar*dest, int width, int height, int stride)
 {
-	Mat I (height, width, CV_8UC3, src);
+	int channel = stride / width;
+	Mat I = cv::Mat (height, width, CV_MAKETYPE (CV_8U, channel), src, stride);
+
+	if (channel == 4)
+		cvtColor (I, I, COLOR_BGRA2BGR);
+
 	Mat T = Line (I);
-	for (int i = 0;i < width*height * 3;i++)
+
+	if (channel == 4)
+		cvtColor (T, T, COLOR_BGR2BGRA);
+	for (int i = 0;i < width*height * channel;i++)
 		dest[i] = T.data[i];
 }

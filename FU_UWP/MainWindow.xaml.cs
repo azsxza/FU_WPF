@@ -33,6 +33,7 @@ namespace FU_UWP
         Capture cap;
         Mat capframe;
         Bitmap tt;
+        Bitmap mini;
 
         bool isinpaishe = false;
         bool iscongpaiin = false;
@@ -57,9 +58,9 @@ namespace FU_UWP
         void onstart()
         {
             #region 初始化算法列表
+            String line;
             #region 风格模仿
             StreamReader sr = new StreamReader("..\\风格模仿.txt", Encoding.Default);
-            String line;
             while ((line = sr.ReadLine()) != null)
             {
                 ImageShow Is = new ImageShow();
@@ -70,9 +71,26 @@ namespace FU_UWP
                 stack_fenggemofang.Height += 300;
             }
             #endregion
+            #region 滤镜
+            StreamReader sr2 = new StreamReader("..\\滤镜.txt", Encoding.Default);
+            while ((line = sr2.ReadLine()) != null)
+            {
+                ImageShow Is = new ImageShow();
+                Is.image.Source = new BitmapImage(new Uri(@"..\..\images\QQ截图20161025211605.png", UriKind.Relative));
+                Is.textBlock.Text = line;
+                Is.MouseDown += lvjingtrans;
+                stack_lvjing.Children.Add(Is);
+                stack_lvjing.Height += 300;
+            }
+            #endregion
             #endregion
         }
-
+        //滤镜的按钮的点击触发
+        private void lvjingtrans(object sender, MouseButtonEventArgs e)
+        {
+            image.Source = Functions.fun(MainBitmap, ((ImageShow)sender).textBlock.Text);
+        }
+        //风格转换的按钮的点击触发
         private void fengetrans(object sender, MouseButtonEventArgs e)
         {
             fenggebianhuan(((ImageShow)sender).textBlock.Text);
@@ -94,11 +112,10 @@ namespace FU_UWP
                 p.StartInfo.RedirectStandardOutput = true;//由调用程序获取输出信息
                 p.StartInfo.RedirectStandardError = true;//重定向标准错误输出
                 p.StartInfo.CreateNoWindow = true;//不显示程序窗口
-                p.Start();//启动程序
+                p.Start();
 
-                //向cmd窗口发送输入信息
                 p.StandardInput.WriteLine("python video.py 1.jpg -m models/" + name + ".model" + "&exit");
-                p.WaitForExit();//等待程序执行完退出进程
+                p.WaitForExit();
                 p.Close();
 
 
@@ -537,6 +554,24 @@ namespace FU_UWP
                 anim.Duration = TimeSpan.FromSeconds(0.36);
                 chongpai.BeginAnimation(MarginProperty, anim);
                 iscongpaiin = true;
+
+                //在另一个线程对列表进行图片更新
+                int sum = stack_lvjing.Children.Count;
+                new Thread(() =>
+                {
+                    Mat mini = new Mat();
+                    CvInvoke.Resize(capframe, mini, new System.Drawing.Size(200, 200));
+                    var bmp = mini.Bitmap;
+                    for(int i=0;i<sum;i++)
+                    {
+                        Dispatcher.Invoke(new Action(() =>
+                        {
+                            string text = ((ImageShow)stack_lvjing.Children[i]).textBlock.Text;
+                            ((ImageShow)stack_lvjing.Children[i]).image.Source = Functions.fun(mini.Bitmap, text);
+                        }));
+                        Thread.Sleep(5);
+                    }
+                }).Start();
             }
         }
 
@@ -560,6 +595,8 @@ namespace FU_UWP
             }
         }
 
+        //列表那的逻辑代码
+        string currentlist = "";
         public void chooselistmoveout(ScrollViewer sc)
         {
             ThicknessAnimation anim2 = new ThicknessAnimation();
@@ -578,7 +615,14 @@ namespace FU_UWP
         }
         private void Algorithomlist_click(object sender, RoutedEventArgs e)
         {
-            chooselistmoveout(fenggemofang);
+            currentlist = ((Button)sender).Name;
+            switch(currentlist)
+            {
+                case "fenggemofangbutton": chooselistmoveout(fenggemofang);break;
+                case "lvjingbutton": chooselistmoveout(lvjing); break;
+                case "tiaozhengbutton": chooselistmoveout(tiaozheng); break;
+                case "tiezhibutton": chooselistmoveout(tiezhi); break;
+            }
             DoubleAnimation daV6 = new DoubleAnimation(0, 1, new Duration(TimeSpan.FromSeconds(0.25)));
             chexiao2.BeginAnimation(OpacityProperty, daV6);
         }
@@ -588,7 +632,14 @@ namespace FU_UWP
         }
         private void chexiao2_Click(object sender, RoutedEventArgs e)
         {
-            chooselistmoveoin(fenggemofang);
+            switch (currentlist)
+            {
+                case "fenggemofangbutton": chooselistmoveoin(fenggemofang); break;
+                case "lvjingbutton": chooselistmoveoin(lvjing); break;
+                case "tiaozhengbutton": chooselistmoveoin(tiaozheng); break;
+                case "tiezhibutton": chooselistmoveoin(tiezhi); break;
+            }
+            currentlist = "";
             DoubleAnimation daV6 = new DoubleAnimation(1, 0, new Duration(TimeSpan.FromSeconds(0.25)));
             chexiao2.BeginAnimation(OpacityProperty, daV6);
         }
