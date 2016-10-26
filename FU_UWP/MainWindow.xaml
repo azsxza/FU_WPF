@@ -89,11 +89,16 @@
             </Button.Background>
         </Button>
         <Image x:Name="image1" HorizontalAlignment="Left" Height="22" Margin="0,438,0,0" VerticalAlignment="Top" Width="1920" Source="images/组成部分/小蓝条.png" Stretch="Fill"/>
-        <Canvas x:Name="paizhaokuang" Opacity="0" Panel.ZIndex="0" HorizontalAlignment="Left" Height="920" Margin="350,80,0,0" VerticalAlignment="Top" Width="1220">
+        <Canvas x:Name="paizhaokuang" ClipToBounds="True" Opacity="0" Panel.ZIndex="0" HorizontalAlignment="Left" Height="920" Margin="350,80,0,0" VerticalAlignment="Top" Width="1220">
             <Canvas.Background>
                 <ImageBrush ImageSource="images/组成部分/拍照框.png"/>
             </Canvas.Background>
             <Image x:Name="image" HorizontalAlignment="Left" Height="900" Margin="10,10,0,0" VerticalAlignment="Top" Width="1200"/>
+            <Image Panel.ZIndex="1" x:Name="image123" Width="200" IsManipulationEnabled="True" Source="images/贴纸/害羞脸.png" Canvas.Left="17" Canvas.Top="144" >
+                <Image.RenderTransform>
+                    <MatrixTransform Matrix="1.5929750047527,0.585411309251951,-0.585411309251951,1.5929750047527,564.691807426081,79.4658072348299"/>
+                </Image.RenderTransform>
+            </Image>
         </Canvas>
         <Button x:Name="chongpai" Panel.ZIndex="1" Content="" HorizontalAlignment="Center" Margin="1920,670,-200,210" VerticalAlignment="Center" Width="200" Height="200" BorderBrush="#00707070" Foreground="#00000000" Style="{DynamicResource ImageButton}" Click="chongpai_Click">
             <Button.Background>

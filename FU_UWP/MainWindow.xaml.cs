@@ -54,6 +54,72 @@ namespace FU_UWP
             cap.ImageGrabbed += Cap_ImageGrabbed;
             cap.Stop();
             history = new List<BitmapImage>();
+
+            this.Loaded += new RoutedEventHandler(MainWindow_Loaded);
+        }
+        void MainWindow_Loaded(object sender, RoutedEventArgs e)
+        {
+            paizhaokuang.ManipulationStarting += new EventHandler<ManipulationStartingEventArgs>(image_ManipulationStarting);
+            paizhaokuang.ManipulationDelta += new EventHandler<ManipulationDeltaEventArgs>(image_ManipulationDelta);
+            paizhaokuang.ManipulationInertiaStarting += new EventHandler<ManipulationInertiaStartingEventArgs>(canvas_ManipulationInertiaStarting);
+        }
+        void canvas_ManipulationInertiaStarting(object sender, ManipulationInertiaStartingEventArgs e)
+        {
+            e.TranslationBehavior = new InertiaTranslationBehavior()
+            {
+                InitialVelocity = e.InitialVelocities.LinearVelocity,
+                DesiredDeceleration = 10.0 * 96.0 / (1000.0 * 1000.0)
+            };
+            e.ExpansionBehavior = new InertiaExpansionBehavior()
+            {
+                InitialVelocity = e.InitialVelocities.ExpansionVelocity,
+                DesiredDeceleration = 0.1 * 96 / 1000.0 * 1000.0
+            };
+            e.RotationBehavior = new InertiaRotationBehavior()
+            {
+                InitialVelocity = e.InitialVelocities.AngularVelocity,
+                DesiredDeceleration = 720 / (1000.0 * 1000.0)
+            };
+            e.Handled = true;
+        }
+        UIElement last;
+        void image_ManipulationStarting(object sender, ManipulationStartingEventArgs e)
+        {
+            var uie = e.OriginalSource as UIElement;
+            if (uie != null)
+            {
+                if (last != null) Canvas.SetZIndex(last, 0);
+                Canvas.SetZIndex(uie, 2);
+                last = uie;
+            }
+            e.ManipulationContainer = paizhaokuang;
+            e.Handled = true;       
+        }
+        void image_ManipulationDelta(object sender, ManipulationDeltaEventArgs e)
+        {
+            var element = e.Source as FrameworkElement;
+            if (element != null)
+            {
+                var deltaManipulation = e.DeltaManipulation;
+                var matrix = ((MatrixTransform)element.RenderTransform).Matrix;
+                System.Windows.Point center = new System.Windows.Point(element.ActualWidth / 2, element.ActualHeight / 2);
+                center = matrix.Transform(center);
+                matrix.ScaleAt(deltaManipulation.Scale.X, deltaManipulation.Scale.Y, center.X, center.Y);
+                matrix.RotateAt(e.DeltaManipulation.Rotation, center.X, center.Y);
+                matrix.Translate(e.DeltaManipulation.Translation.X, e.DeltaManipulation.Translation.Y);
+                ((MatrixTransform)element.RenderTransform).Matrix = matrix;
+                e.Handled = true;
+                if (e.IsInertial)
+                {
+                    Rect containingRect = new Rect(((FrameworkElement)e.ManipulationContainer).RenderSize);
+                    Rect shapeBounds = element.RenderTransform.TransformBounds(new Rect(element.RenderSize));
+                    if (e.IsInertial && !containingRect.Contains(shapeBounds))
+                    {
+                        e.ReportBoundaryFeedback(e.DeltaManipulation);       
+                        e.Complete();
+                    }
+                }
+            }
         }
 
         void onstart()
@@ -91,13 +157,26 @@ namespace FU_UWP
                 ImageShow Is = new ImageShow();
                 Is.image.Source = new BitmapImage(new Uri(@"..\..\images\贴纸\" + line + ".png", UriKind.Relative));
                 Is.textBlock.Text = line;
-                //Is.MouseDown += lvjingtrans;
+                Is.MouseDown += tiezhitrans;
                 stack_tiezhi.Children.Add(Is);
                 stack_tiezhi.Height += 300;
             }
             #endregion
             #endregion
         }
+
+        private void tiezhitrans(object sender, MouseButtonEventArgs e)
+        {
+            var t = new System.Windows.Controls.Image();
+            t.Source= new BitmapImage(new Uri(@"..\..\images\贴纸\" + ((ImageShow)sender).textBlock.Text + ".png", UriKind.Relative));
+            t.RenderTransform = new MatrixTransform(1.5929750047527, 0.585411309251951, -0.585411309251951, 1.5929750047527, 564.691807426081, 79.4658072348299);
+            t.Width = 150;
+            t.IsManipulationEnabled = true;
+            t.SetValue(Canvas.TopProperty, 1.0);
+            t.SetValue(Canvas.LeftProperty, 1.0);
+            paizhaokuang.Children.Add(t);
+        }
+
         //滤镜的按钮的点击触发
         private void lvjingtrans(object sender, MouseButtonEventArgs e)
         {
