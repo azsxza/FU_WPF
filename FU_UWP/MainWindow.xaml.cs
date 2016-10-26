@@ -29,6 +29,7 @@ namespace FU_UWP
     {
         //用于显示的图片
         BitmapImage MainBitmap = null;
+        List<BitmapImage> history;
         //摄像头和用于接收摄像头的Mat
         Capture cap;
         Mat capframe;
@@ -52,6 +53,7 @@ namespace FU_UWP
             cap.SetCaptureProperty(CapProp.FrameWidth, 960);
             cap.ImageGrabbed += Cap_ImageGrabbed;
             cap.Stop();
+            history = new List<BitmapImage>();
         }
 
         void onstart()
@@ -99,7 +101,9 @@ namespace FU_UWP
         //滤镜的按钮的点击触发
         private void lvjingtrans(object sender, MouseButtonEventArgs e)
         {
-            image.Source = Functions.fun(MainBitmap, ((ImageShow)sender).textBlock.Text);
+            var tmp = Functions.fun(MainBitmap, ((ImageShow)sender).textBlock.Text);
+            image.Source = tmp;
+            history.Add(tmp);
         }
         //风格转换的按钮的点击触发
         private void fengetrans(object sender, MouseButtonEventArgs e)
@@ -134,6 +138,7 @@ namespace FU_UWP
                 {
                     BitmapImage tmp = GetImage(System.IO.Directory.GetCurrentDirectory() + "\\out.jpg");
                     image.Source = tmp;
+                    history.Add(tmp);
                 }));
                 File.Delete("out.jpg");
             }).Start();
@@ -460,6 +465,14 @@ namespace FU_UWP
                 ((ImageBrush)chongpai.Background).ImageSource = new BitmapImage(new Uri(@"..\..\images\图标\发送电子版.png", UriKind.Relative));
                 isdone = true;
                 chexiao2.Visibility = Visibility.Hidden;
+                MainBitmap = (BitmapImage)image.Source;
+                switch (currentlist)
+                {
+                    case "fenggemofangbutton": chooselistmoveoin(fenggemofang); break;
+                    case "lvjingbutton": chooselistmoveoin(lvjing); break;
+                    case "tiaozhengbutton": chooselistmoveoin(tiaozheng); break;
+                    case "tiezhibutton": chooselistmoveoin(tiezhi); break;
+                }
             }
             //如果重拍按钮在界面中，则该按钮的功能为完成
             else if(iscongpaiin)
@@ -518,7 +531,7 @@ namespace FU_UWP
             //如果在拍摄中，而且重拍按钮不在界面中，则该按钮功能为拍摄
             else if(isinpaishe)
             {
-                capframe = CvInvoke.Imread(@"..\..\images\psb.jpg", LoadImageType.AnyColor);
+                //capframe = CvInvoke.Imread(@"..\..\images\psb.jpg", LoadImageType.AnyColor);
                 tt = capframe.Bitmap;
                 cap.Stop();
 
@@ -559,6 +572,7 @@ namespace FU_UWP
                 bitmap.EndInit();
                 MainBitmap = bitmap;
                 image.Source = MainBitmap;
+                history.Add(bitmap);
                 ((ImageBrush)shangchuan.Background).ImageSource = new BitmapImage(new Uri(@"..\..\images\图标\完成.png", UriKind.Relative));
                 ThicknessAnimation anim = new ThicknessAnimation();
                 anim.From = new Thickness(1920, 670, -200, 210);
@@ -654,6 +668,17 @@ namespace FU_UWP
             currentlist = "";
             DoubleAnimation daV6 = new DoubleAnimation(1, 0, new Duration(TimeSpan.FromSeconds(0.25)));
             chexiao2.BeginAnimation(OpacityProperty, daV6);
+            MainBitmap = (BitmapImage)image.Source;
+        }
+
+        private void chexiao_Click(object sender, RoutedEventArgs e)
+        {
+            if (history.Count >= 2)
+            {
+                image.Source = history[history.Count - 2];
+                MainBitmap = history[history.Count - 2];
+                history.Remove(history[history.Count - 1]);
+            }
         }
     }
 }
