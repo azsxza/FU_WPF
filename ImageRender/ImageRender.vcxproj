@@ -184,6 +184,7 @@
     <ClCompile Include="oilpaint.cpp" />
     <ClCompile Include="PencilDraw.cpp" />
     <ClCompile Include="Quban.cpp" />
+    <ClCompile Include="SetBrightness.cpp" />
     <ClCompile Include="sethue.cpp" />
     <ClCompile Include="SetSaturation.cpp" />
     <ClCompile Include="shan.cpp" />

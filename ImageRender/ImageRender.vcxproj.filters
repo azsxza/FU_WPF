@@ -125,5 +125,8 @@
     <ClCompile Include="shan.cpp">
       <Filter>源文件\render</Filter>
     </ClCompile>
+    <ClCompile Include="SetBrightness.cpp">
+      <Filter>源文件\render</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

@@ -97,15 +97,7 @@ namespace FU_UWP {
         #line hidden
         
         
-        #line 97 "..\..\MainWindow.xaml"
-        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
-        internal System.Windows.Controls.Image image123;
-        
-        #line default
-        #line hidden
-        
-        
-        #line 103 "..\..\MainWindow.xaml"
+        #line 98 "..\..\MainWindow.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.Button chongpai;
         
@@ -113,7 +105,7 @@ namespace FU_UWP {
         #line hidden
         
         
-        #line 108 "..\..\MainWindow.xaml"
+        #line 103 "..\..\MainWindow.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.Grid choose;
         
@@ -121,7 +113,7 @@ namespace FU_UWP {
         #line hidden
         
         
-        #line 109 "..\..\MainWindow.xaml"
+        #line 104 "..\..\MainWindow.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.Grid choose1;
         
@@ -129,7 +121,7 @@ namespace FU_UWP {
         #line hidden
         
         
-        #line 110 "..\..\MainWindow.xaml"
+        #line 105 "..\..\MainWindow.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.Button fenggemofangbutton;
         
@@ -137,7 +129,7 @@ namespace FU_UWP {
         #line hidden
         
         
-        #line 115 "..\..\MainWindow.xaml"
+        #line 110 "..\..\MainWindow.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.Button lvjingbutton;
         
@@ -145,7 +137,7 @@ namespace FU_UWP {
         #line hidden
         
         
-        #line 120 "..\..\MainWindow.xaml"
+        #line 115 "..\..\MainWindow.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.Button tiaozhengbutton;
         
@@ -153,7 +145,7 @@ namespace FU_UWP {
         #line hidden
         
         
-        #line 125 "..\..\MainWindow.xaml"
+        #line 120 "..\..\MainWindow.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.Button tiezhibutton;
         
@@ -161,7 +153,7 @@ namespace FU_UWP {
         #line hidden
         
         
-        #line 131 "..\..\MainWindow.xaml"
+        #line 126 "..\..\MainWindow.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.ScrollViewer fenggemofang;
         
@@ -169,7 +161,7 @@ namespace FU_UWP {
         #line hidden
         
         
-        #line 132 "..\..\MainWindow.xaml"
+        #line 127 "..\..\MainWindow.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.StackPanel stack_fenggemofang;
         
@@ -177,7 +169,7 @@ namespace FU_UWP {
         #line hidden
         
         
-        #line 134 "..\..\MainWindow.xaml"
+        #line 129 "..\..\MainWindow.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.ScrollViewer lvjing;
         
@@ -185,7 +177,7 @@ namespace FU_UWP {
         #line hidden
         
         
-        #line 135 "..\..\MainWindow.xaml"
+        #line 130 "..\..\MainWindow.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.StackPanel stack_lvjing;
         
@@ -193,7 +185,7 @@ namespace FU_UWP {
         #line hidden
         
         
-        #line 137 "..\..\MainWindow.xaml"
+        #line 132 "..\..\MainWindow.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.ScrollViewer tiaozheng;
         
@@ -201,7 +193,7 @@ namespace FU_UWP {
         #line hidden
         
         
-        #line 138 "..\..\MainWindow.xaml"
+        #line 133 "..\..\MainWindow.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.StackPanel stack_tiaozheng;
         
@@ -209,7 +201,7 @@ namespace FU_UWP {
         #line hidden
         
         
-        #line 140 "..\..\MainWindow.xaml"
+        #line 135 "..\..\MainWindow.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.ScrollViewer tiezhi;
         
@@ -217,7 +209,7 @@ namespace FU_UWP {
         #line hidden
         
         
-        #line 141 "..\..\MainWindow.xaml"
+        #line 136 "..\..\MainWindow.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.StackPanel stack_tiezhi;
         
@@ -225,7 +217,7 @@ namespace FU_UWP {
         #line hidden
         
         
-        #line 144 "..\..\MainWindow.xaml"
+        #line 139 "..\..\MainWindow.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.Button chexiao;
         
@@ -233,7 +225,7 @@ namespace FU_UWP {
         #line hidden
         
         
-        #line 149 "..\..\MainWindow.xaml"
+        #line 144 "..\..\MainWindow.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.Grid shan;
         
@@ -241,7 +233,7 @@ namespace FU_UWP {
         #line hidden
         
         
-        #line 150 "..\..\MainWindow.xaml"
+        #line 145 "..\..\MainWindow.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.Button chexiao2;
         
@@ -320,123 +312,120 @@ namespace FU_UWP {
             this.image = ((System.Windows.Controls.Image)(target));
             return;
             case 9:
-            this.image123 = ((System.Windows.Controls.Image)(target));
-            return;
-            case 10:
             this.chongpai = ((System.Windows.Controls.Button)(target));
             
-            #line 103 "..\..\MainWindow.xaml"
+            #line 98 "..\..\MainWindow.xaml"
             this.chongpai.Click += new System.Windows.RoutedEventHandler(this.chongpai_Click);
             
             #line default
             #line hidden
             return;
-            case 11:
+            case 10:
             this.choose = ((System.Windows.Controls.Grid)(target));
             return;
-            case 12:
+            case 11:
             this.choose1 = ((System.Windows.Controls.Grid)(target));
             return;
-            case 13:
+            case 12:
             this.fenggemofangbutton = ((System.Windows.Controls.Button)(target));
             
-            #line 110 "..\..\MainWindow.xaml"
+            #line 105 "..\..\MainWindow.xaml"
             this.fenggemofangbutton.Click += new System.Windows.RoutedEventHandler(this.Algorithomlist_click);
             
             #line default
             #line hidden
             return;
-            case 14:
+            case 13:
             this.lvjingbutton = ((System.Windows.Controls.Button)(target));
             
-            #line 115 "..\..\MainWindow.xaml"
+            #line 110 "..\..\MainWindow.xaml"
             this.lvjingbutton.Click += new System.Windows.RoutedEventHandler(this.Algorithomlist_click);
             
             #line default
             #line hidden
             return;
-            case 15:
+            case 14:
             this.tiaozhengbutton = ((System.Windows.Controls.Button)(target));
             
-            #line 120 "..\..\MainWindow.xaml"
+            #line 115 "..\..\MainWindow.xaml"
             this.tiaozhengbutton.Click += new System.Windows.RoutedEventHandler(this.Algorithomlist_click);
             
             #line default
             #line hidden
             return;
-            case 16:
+            case 15:
             this.tiezhibutton = ((System.Windows.Controls.Button)(target));
             
-            #line 125 "..\..\MainWindow.xaml"
+            #line 120 "..\..\MainWindow.xaml"
             this.tiezhibutton.Click += new System.Windows.RoutedEventHandler(this.Algorithomlist_click);
             
             #line default
             #line hidden
             return;
-            case 17:
+            case 16:
             this.fenggemofang = ((System.Windows.Controls.ScrollViewer)(target));
             
-            #line 131 "..\..\MainWindow.xaml"
+            #line 126 "..\..\MainWindow.xaml"
             this.fenggemofang.ManipulationBoundaryFeedback += new System.EventHandler<System.Windows.Input.ManipulationBoundaryFeedbackEventArgs>(this.SCManipulationBoundaryFeedback);
             
             #line default
             #line hidden
             return;
-            case 18:
+            case 17:
             this.stack_fenggemofang = ((System.Windows.Controls.StackPanel)(target));
             return;
-            case 19:
+            case 18:
             this.lvjing = ((System.Windows.Controls.ScrollViewer)(target));
             
-            #line 134 "..\..\MainWindow.xaml"
+            #line 129 "..\..\MainWindow.xaml"
             this.lvjing.ManipulationBoundaryFeedback += new System.EventHandler<System.Windows.Input.ManipulationBoundaryFeedbackEventArgs>(this.SCManipulationBoundaryFeedback);
             
             #line default
             #line hidden
             return;
-            case 20:
+            case 19:
             this.stack_lvjing = ((System.Windows.Controls.StackPanel)(target));
             return;
-            case 21:
+            case 20:
             this.tiaozheng = ((System.Windows.Controls.ScrollViewer)(target));
             
-            #line 137 "..\..\MainWindow.xaml"
+            #line 132 "..\..\MainWindow.xaml"
             this.tiaozheng.ManipulationBoundaryFeedback += new System.EventHandler<System.Windows.Input.ManipulationBoundaryFeedbackEventArgs>(this.SCManipulationBoundaryFeedback);
             
             #line default
             #line hidden
             return;
-            case 22:
+            case 21:
             this.stack_tiaozheng = ((System.Windows.Controls.StackPanel)(target));
             return;
-            case 23:
+            case 22:
             this.tiezhi = ((System.Windows.Controls.ScrollViewer)(target));
             
-            #line 140 "..\..\MainWindow.xaml"
+            #line 135 "..\..\MainWindow.xaml"
             this.tiezhi.ManipulationBoundaryFeedback += new System.EventHandler<System.Windows.Input.ManipulationBoundaryFeedbackEventArgs>(this.SCManipulationBoundaryFeedback);
             
             #line default
             #line hidden
             return;
-            case 24:
+            case 23:
             this.stack_tiezhi = ((System.Windows.Controls.StackPanel)(target));
             return;
-            case 25:
+            case 24:
             this.chexiao = ((System.Windows.Controls.Button)(target));
             
-            #line 144 "..\..\MainWindow.xaml"
+            #line 139 "..\..\MainWindow.xaml"
             this.chexiao.Click += new System.Windows.RoutedEventHandler(this.chexiao_Click);
             
             #line default
             #line hidden
             return;
-            case 26:
+            case 25:
             this.shan = ((System.Windows.Controls.Grid)(target));
             return;
-            case 27:
+            case 26:
             this.chexiao2 = ((System.Windows.Controls.Button)(target));
             
-            #line 150 "..\..\MainWindow.xaml"
+            #line 145 "..\..\MainWindow.xaml"
             this.chexiao2.Click += new System.Windows.RoutedEventHandler(this.chexiao2_Click);
             
             #line default
