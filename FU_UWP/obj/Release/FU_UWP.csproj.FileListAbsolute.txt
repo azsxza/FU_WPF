@@ -37,3 +37,5 @@ C:\Users\chengk\Desktop\FU_WPF\FU_UWP\obj\Release\MainWindow.baml
 C:\Users\chengk\Desktop\FU_WPF\FU_UWP\obj\Release\FU_UWP.g.resources
 C:\Users\chengk\Desktop\FU_WPF\FU_UWP\obj\Release\FU_UWP.Properties.Resources.resources
 C:\Users\chengk\Desktop\FU_WPF\FU_UWP\obj\Release\FU_UWP.csproj.GenerateResource.Cache
+D:\FU_WPF\FU_UWP\obj\Release\tiezhikuang.g.cs
+D:\FU_WPF\FU_UWP\obj\Release\tiezhikuang.baml

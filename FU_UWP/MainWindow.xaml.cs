@@ -195,18 +195,26 @@ namespace FU_UWP
             }
         }
 
+        //贴纸的按钮点击触发
         private void tiezhitrans(object sender, MouseButtonEventArgs e)
         {
-            var t = new System.Windows.Controls.Image();
-            t.Source= new BitmapImage(new Uri(@"..\..\images\贴纸\" + ((ImageShow)sender).textBlock.Text + ".png", UriKind.Relative));
-            t.RenderTransform = new MatrixTransform(1.5929750047527, 0.585411309251951, -0.585411309251951, 1.5929750047527, 564.691807426081, 79.4658072348299);
-            t.Width = 150;
+            //var t = new System.Windows.Controls.Image();
+            //t.Source= new BitmapImage(new Uri(@"..\..\images\贴纸\" + ((ImageShow)sender).textBlock.Text + ".png", UriKind.Relative));
+            //t.RenderTransform = new MatrixTransform(1.5929750047527, 0.585411309251951, -0.585411309251951, 1.5929750047527, 564.691807426081, 79.4658072348299);
+            //t.Width = 150;
+            //t.IsManipulationEnabled = true;
+            //t.SetValue(Canvas.TopProperty, 1.0);
+            //t.SetValue(Canvas.LeftProperty, 1.0);
+            //paizhaokuang.Children.Add(t);
+            var t = new tiezhikuang();
+            t.main1.Source = new BitmapImage(new Uri(@"..\..\images\贴纸\" + ((ImageShow)sender).textBlock.Text + ".png", UriKind.Relative));
+            t.RenderTransform= new MatrixTransform(1, 0, 0, 1, 455, 335);
+            t.main1.Width = 300;
             t.IsManipulationEnabled = true;
             t.SetValue(Canvas.TopProperty, 1.0);
             t.SetValue(Canvas.LeftProperty, 1.0);
             paizhaokuang.Children.Add(t);
         }
-
         //滤镜的按钮的点击触发
         private void lvjingtrans(object sender, MouseButtonEventArgs e)
         {

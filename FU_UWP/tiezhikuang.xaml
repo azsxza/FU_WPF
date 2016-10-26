@@ -1,0 +1,17 @@
+﻿<UserControl x:Class="FU_UWP.tiezhikuang" x:Name="tiezhikuang11"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:FU_UWP"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <Grid >
+        <Border x:Name="border1" CornerRadius="15" BorderBrush="Black" BorderThickness="3,3,3,3">
+        </Border>
+        <Image x:Name="main1" Source="images/贴纸/兔耳朵.png"/>
+        <Image x:Name="image11" HorizontalAlignment="Left" Height="53" Margin="247,0,0,0" VerticalAlignment="Top" Width="53" Source="images/图标/叉叉 (1).png" MouseDown="image_MouseDown" TouchDown="image11_TouchDown"/>
+        <Image x:Name="image11_Copy" HorizontalAlignment="Left" Height="53" VerticalAlignment="Top" Width="53" Source="images/图标/对号.png" MouseDown="image_MouseDown" TouchDown="image11_Copy_TouchDown"/>
+    </Grid>
+
+</UserControl>
