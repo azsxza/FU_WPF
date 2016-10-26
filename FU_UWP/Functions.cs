@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
@@ -10,7 +11,7 @@ using System.Windows.Media.Imaging;
 
 namespace FU_UWP
 {
-    public  static unsafe class Functions
+    public unsafe class Functions
     {
         [DllImport("ImageRender.dll", CallingConvention = CallingConvention.Cdecl)]
         public extern static void Worlde(byte* src, byte* dest, int height, int width, int stride);
@@ -51,6 +52,8 @@ namespace FU_UWP
         [DllImport("ImageRender.dll", CallingConvention = CallingConvention.Cdecl)]
         public extern static void Line(byte* src, byte* dest, int height, int width, int stride);
 
+        [DllImport("ImageRender.dll", CallingConvention = CallingConvention.Cdecl)]
+        public extern static void setbri(byte* src, byte* dest, int height, int width, int stride, int b);
 
 
 
@@ -122,6 +125,36 @@ namespace FU_UWP
 
             return Bitmap2BitmapImage(dest);
         }
+
+        #region 调节部分
+        public static Bitmap bmp2;
+        public static Bitmap dest2;
+        public static BitmapData adata2;
+        public static BitmapData data2;
+        public static byte* src2;
+        public static int ImageStride2;
+        public static byte* output2;
+        public static void inti(BitmapImage bi)
+        {
+            bmp2 = BitMapImage2Bitmap(bi);
+            dest2 = (Bitmap)bmp2.Clone();
+            adata2 = bmp2.LockBits(new Rectangle(0, 0, bmp2.Width, bmp2.Height), System.Drawing.Imaging.ImageLockMode.ReadWrite, bmp2.PixelFormat);
+            data2 = dest2.LockBits(new Rectangle(0, 0, dest2.Width, dest2.Height), System.Drawing.Imaging.ImageLockMode.ReadWrite, dest2.PixelFormat);
+            src2 = (byte*)adata2.Scan0;
+            ImageStride2 = adata2.Stride;
+            output2 = (byte*)data2.Scan0;
+            bmp2.UnlockBits(adata2);
+            dest2.UnlockBits(data2);
+        }
+        public static BitmapImage fun2(string name,int b)
+        {
+            switch (name)
+            {
+                case "亮度": setbri(src2, output2, bmp2.Height, bmp2.Width, ImageStride2, b); break;
+            }
+            return Bitmap2BitmapImage(dest2);
+        }
+        #endregion
 
         public static Bitmap BitMapImage2Bitmap(BitmapImage bitmapImage)
         {

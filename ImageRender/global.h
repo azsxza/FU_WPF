@@ -161,7 +161,8 @@ extern "C" _declspec(dllexport) void shan (uchar* src, uchar* dest, double ddd, 
 
 
 
-
+//µ÷ÕûÁÁ¶È
+extern "C" __declspec(dllexport) void setbri (uchar* src, uchar* dest, int width, int height, int stride, int b);
 
 
 

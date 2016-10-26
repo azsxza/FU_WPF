@@ -56,7 +56,11 @@ namespace FU_UWP
             history = new List<BitmapImage>();
 
             this.Loaded += new RoutedEventHandler(MainWindow_Loaded);
+
+            slider.ValueChanged += Slider_ValueChanged;
         }
+
+
         void MainWindow_Loaded(object sender, RoutedEventArgs e)
         {
             paizhaokuang.ManipulationStarting += new EventHandler<ManipulationStartingEventArgs>(image_ManipulationStarting);
@@ -162,7 +166,33 @@ namespace FU_UWP
                 stack_tiezhi.Height += 300;
             }
             #endregion
+            #region 调整
+            StreamReader sr4 = new StreamReader("..\\调整.txt", Encoding.Default);
+            while ((line = sr4.ReadLine()) != null)
+            {
+                ImageShow Is = new ImageShow();
+                Is.image.Source = new BitmapImage(new Uri(@"..\..\images\QQ截图20161025211605.png", UriKind.Relative));
+                Is.textBlock.Text = line;
+                Is.MouseDown += tiaozhengtrans;
+                stack_tiaozheng.Children.Add(Is);
+                stack_tiaozheng.Height += 300;
+            }
             #endregion
+            #endregion
+        }
+
+        string currenttiaozheng = "";
+        private void tiaozhengtrans(object sender, MouseButtonEventArgs e)
+        {
+            currenttiaozheng = ((ImageShow)sender).textBlock.Text;
+            Functions.inti(MainBitmap);
+        }
+        private void Slider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            switch(currenttiaozheng)
+            {
+                case "亮度":image.Source = Functions.fun2("亮度", (int)slider.Value); break;
+            }
         }
 
         private void tiezhitrans(object sender, MouseButtonEventArgs e)
