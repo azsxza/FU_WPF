@@ -66,8 +66,7 @@
                     <ImageBrush ImageSource="images/图标/×.png"/>
                 </Button.Background>
             </Button>
-            <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="23" Margin="224,154,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="254" GotFocus="textBox_GotFocus" MouseDown="textBox_MouseDown"/>
-            <Button x:Name="button1" Content="Button" HorizontalAlignment="Left" Margin="254,230,0,0" VerticalAlignment="Top" Width="224" Height="73"/>
+            <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="44,110,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="136" Width="598" FontFamily="FZZhongQian-M16S" FontSize="36"><Run Text="正在打印中...请在30秒后取出照片，点击关闭"/><Run Text="后"/><Run Text="将会返回至主页面。"/></TextBlock>
         </Grid>
     </Grid>
 </Window>

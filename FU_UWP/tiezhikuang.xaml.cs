@@ -41,6 +41,7 @@ namespace FU_UWP
             image11.Visibility = Visibility.Hidden;
             image11_Copy.Visibility = Visibility.Hidden;
             this.IsManipulationEnabled = false;
+            SetValue(Panel.ZIndexProperty, 1);
         }
     }
 }
