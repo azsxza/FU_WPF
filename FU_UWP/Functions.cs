@@ -55,6 +55,11 @@ namespace FU_UWP
         [DllImport("ImageRender.dll", CallingConvention = CallingConvention.Cdecl)]
         public extern static void setbri(byte* src, byte* dest, int height, int width, int stride, int b);
 
+        [DllImport("ImageRender.dll", CallingConvention = CallingConvention.Cdecl)]
+        public extern static void setCompare(byte* src, byte* dest, int height, int width, int stride, int b);
+
+
+
 
 
         //调节类
@@ -151,6 +156,7 @@ namespace FU_UWP
             switch (name)
             {
                 case "亮度": setbri(src2, output2, bmp2.Height, bmp2.Width, ImageStride2, b); break;
+                case "对比度": setCompare(src2, output2, bmp2.Height, bmp2.Width, ImageStride2, b); break;
             }
             return Bitmap2BitmapImage(dest2);
         }

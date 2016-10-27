@@ -162,9 +162,10 @@ extern "C" _declspec(dllexport) void shan (uchar* src, uchar* dest, double ddd, 
 
 
 //调整亮度
-extern "C" __declspec(dllexport) void setbri (uchar* src, uchar* dest, int width, int height, int stride, int b);
+extern "C" __declspec(dllexport) void setbri (uchar* src, uchar* dest, int height, int width, int stride, int b);
 
-
+//调整对比度
+extern "C" __declspec(dllexport) void setCompare (uchar* src, uchar* dest, int height, int width, int stride, int b);
 
 
 

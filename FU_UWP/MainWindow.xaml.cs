@@ -189,10 +189,7 @@ namespace FU_UWP
         }
         private void Slider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
-            switch(currenttiaozheng)
-            {
-                case "亮度":image.Source = Functions.fun2("亮度", (int)slider.Value); break;
-            }
+            image.Source = Functions.fun2(currenttiaozheng, (int)slider.Value);
         }
 
         //贴纸的按钮点击触发
