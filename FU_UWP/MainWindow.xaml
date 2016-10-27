@@ -71,6 +71,97 @@
                 <ScrollBar x:Name="PART_HorizontalScrollBar" AutomationProperties.AutomationId="HorizontalScrollBar" Cursor="Arrow" Grid.Column="0" Maximum="{TemplateBinding ScrollableWidth}" Minimum="0" Orientation="Horizontal" Grid.Row="1" Visibility="{TemplateBinding ComputedHorizontalScrollBarVisibility}" Value="{Binding HorizontalOffset, Mode=OneWay, RelativeSource={RelativeSource TemplatedParent}}" ViewportSize="{TemplateBinding ViewportWidth}"/>
             </Grid>
         </ControlTemplate>
+        <LinearGradientBrush x:Key="SliderBackground"  StartPoint="0,0" EndPoint="0,1">
+            <GradientStop Offset="0" Color="#59ccfc"/>
+            <GradientStop Offset="0.5" Color="#00b3fe"/>
+            <GradientStop Offset="1" Color="#59ccfc"/>
+        </LinearGradientBrush>
+        <Style x:Key="Slider_RepeatButton" TargetType="{x:Type RepeatButton}">
+            <Setter Property="Focusable" Value="false" />
+            <Setter Property="Height" Value="10"/>
+            <Setter Property="BorderBrush" Value="Transparent"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type RepeatButton}">
+                        <Border Background="{StaticResource SliderBackground}" />
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="Slider_RepeatButton1" TargetType="{x:Type RepeatButton}">
+            <Setter Property="Focusable" Value="false" />
+            <Setter Property="Height" Value="10"/>
+            <Setter Property="BorderBrush" Value="Transparent"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type RepeatButton}">
+                        <Border Background="Gray" />
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <LinearGradientBrush x:Key="SliderThumb"  StartPoint="0,0" EndPoint="0,1">
+            <GradientStop Offset="0" Color="#FFD9D3E8"/>
+            <!--<GradientStop Offset="1" Color="#dfdfdf"/>-->
+        </LinearGradientBrush>
+        <Style x:Key="Slider_Thumb" TargetType="{x:Type Thumb}">
+            <Setter Property="Focusable" Value="false" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Thumb}">
+                        <Grid MinHeight="20">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <Border Background="{StaticResource SliderBackground}"/>
+                            <Border Grid.ColumnSpan="2" CornerRadius="4"  Background="{StaticResource SliderThumb}" Width="18">
+                                <!--<TextBlock Text="||" HorizontalAlignment="Center" VerticalAlignment="Center"/>-->
+                            </Border>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="Slider_CustomStyle" TargetType="{x:Type Slider}">
+            <Setter Property="Focusable" Value="false" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Slider}">
+                        <Grid>
+                            <!--<Grid.ColumnDefinitions>    
+                                <ColumnDefinition Width="80"/>    
+                                <ColumnDefinition/>    
+                                <ColumnDefinition Width="40"/>    
+                            </Grid.ColumnDefinitions>-->
+                            <Grid.Effect>
+                                <DropShadowEffect BlurRadius="8" ShadowDepth="1" />
+                            </Grid.Effect>
+                            <!--<Border HorizontalAlignment="Right" BorderBrush="Gray" BorderThickness="1,1,0,1" Background="{StaticResource SliderText}" Width="80" CornerRadius="8,0,0,8"/>  
+                            <Border Grid.Column="2" HorizontalAlignment="Right" BorderBrush="Gray" BorderThickness="0,1,1,1" Background="{StaticResource SliderText}" Width="40" CornerRadius="0,8,8,0"/>  
+                            <TextBlock Grid.Column="2" Text="{Binding RelativeSource={RelativeSource TemplatedParent},Path=Tag}" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="14"/>  
+                            <TextBlock Grid.Column="0" Text="{Binding ElementName=PART_Track,Path=Value,StringFormat=\{0:N0\}}" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="14" DataContext="{Binding}" />-->
+
+                            <Border Grid.Column="1" BorderBrush="Red" BorderThickness="0" CornerRadius="0,0,0,0">
+                                <Track Grid.Column="1" x:Name="PART_Track">
+                                    <Track.DecreaseRepeatButton>
+                                        <RepeatButton Style="{StaticResource Slider_RepeatButton}"    
+        									Command="Slider.DecreaseLarge"/>
+                                    </Track.DecreaseRepeatButton>
+                                    <Track.IncreaseRepeatButton>
+                                        <RepeatButton Style="{StaticResource Slider_RepeatButton1}"    
+        									Command="Slider.IncreaseLarge"/>
+                                    </Track.IncreaseRepeatButton>
+                                    <Track.Thumb>
+                                        <Thumb Style="{StaticResource Slider_Thumb}"/>
+                                    </Track.Thumb>
+                                </Track>
+                            </Border>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
     </Window.Resources>
 
 
@@ -122,18 +213,17 @@
                         <ImageBrush ImageSource="images/图标/贴纸.png"/>
                     </Button.Background>
                 </Button>
-                <Slider x:Name="slider" HorizontalAlignment="Left" Margin="321,247,-32,0" VerticalAlignment="Top" Width="21" Orientation="Vertical" Height="621" Minimum="-100" Maximum="100"/>
             </Grid>
-            <ScrollViewer x:Name="fenggemofang" PanningMode="Both" ManipulationBoundaryFeedback="SCManipulationBoundaryFeedback"  HorizontalAlignment="Left" Height="1070" VerticalAlignment="Top" Width="310" Margin="310,0,0,0" Template="{DynamicResource ScrollViewerControlTemplate1}">
+            <ScrollViewer x:Name="fenggemofang" PanningMode="Both" ManipulationBoundaryFeedback="SCManipulationBoundaryFeedback"  HorizontalAlignment="Left" Height="1070" VerticalAlignment="Top" Width="320" Margin="310,0,0,0" Template="{DynamicResource ScrollViewerControlTemplate1}">
                 <StackPanel x:Name="stack_fenggemofang" Height="0" Width="300"/>
             </ScrollViewer>
-            <ScrollViewer x:Name="lvjing" PanningMode="Both" ManipulationBoundaryFeedback="SCManipulationBoundaryFeedback" HorizontalAlignment="Left" Height="1070" VerticalAlignment="Top" Width="310" Margin="316,0,0,0">
+            <ScrollViewer x:Name="lvjing" PanningMode="Both" ManipulationBoundaryFeedback="SCManipulationBoundaryFeedback" HorizontalAlignment="Left" Height="1070" VerticalAlignment="Top" Width="320" Margin="316,0,0,0">
                 <StackPanel x:Name="stack_lvjing" Height="0" Width="300"/>
             </ScrollViewer>
-            <ScrollViewer x:Name="tiaozheng" PanningMode="Both" ManipulationBoundaryFeedback="SCManipulationBoundaryFeedback" HorizontalAlignment="Left" Height="1070" VerticalAlignment="Top" Width="310" Margin="316,0,0,0" Background="#FFBFC1CC">
+            <ScrollViewer x:Name="tiaozheng" PanningMode="Both" ManipulationBoundaryFeedback="SCManipulationBoundaryFeedback" HorizontalAlignment="Left" Height="1070" VerticalAlignment="Top" Width="320" Margin="316,0,0,0" Background="#FFBFC1CC">
                 <StackPanel x:Name="stack_tiaozheng" Height="0" Width="300"/>
             </ScrollViewer>
-            <ScrollViewer x:Name="tiezhi" PanningMode="Both" ManipulationBoundaryFeedback="SCManipulationBoundaryFeedback" HorizontalAlignment="Left" Height="1070" VerticalAlignment="Top" Width="310" Margin="310,0,0,0">
+            <ScrollViewer x:Name="tiezhi" PanningMode="Both" ManipulationBoundaryFeedback="SCManipulationBoundaryFeedback" HorizontalAlignment="Left" Height="1070" VerticalAlignment="Top" Width="320" Margin="310,0,0,0">
                 <StackPanel x:Name="stack_tiezhi" Height="0" Width="300" Background="#FFBFC1CC"/>
             </ScrollViewer>
         </Grid>
@@ -148,6 +238,7 @@
                 <ImageBrush ImageSource="images/撤销.png"/>
             </Button.Background>
         </Button>
+        <Slider x:Name="slider" Opacity="0" HorizontalAlignment="Left" Margin="806,835,0,0" VerticalAlignment="Top" Width="1020" Height="38" Minimum="-100" Maximum="100" Style="{DynamicResource Slider_CustomStyle}"/>
 
     </Grid>
 </Window>

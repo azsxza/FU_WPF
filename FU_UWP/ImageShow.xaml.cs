@@ -9,6 +9,7 @@ using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
@@ -36,5 +37,21 @@ namespace FU_UWP
             DependencyProperty.Register("ImageSourceNormal", typeof(ImageSource), typeof(ImageShow),
             new PropertyMetadata(new BitmapImage(new Uri(@"..\..\images\图标\拍摄.png", UriKind.Relative))));
         #endregion
+
+        public bool isclick = false;
+
+        public void click()
+        {
+            DoubleAnimation daV = new DoubleAnimation(0, 1, new Duration(TimeSpan.FromSeconds(0.25)));
+            borderimage.BeginAnimation(OpacityProperty, daV);
+            isclick = true;
+        }
+
+        public void unclick()
+        {
+            DoubleAnimation daV = new DoubleAnimation(1, 0, new Duration(TimeSpan.FromSeconds(0.25)));
+            borderimage.BeginAnimation(OpacityProperty, daV);
+            isclick = false;
+        }
     }
 }

@@ -39,6 +39,7 @@ namespace FU_UWP
         bool iscongpaiin = false;
         bool istakeaphoto = false;
         bool isdone = false;
+        bool issliderbarin = false;
 
         public MainWindow()
         {
@@ -181,15 +182,37 @@ namespace FU_UWP
             #endregion
         }
 
+        //调整的按钮的点击触发
         string currenttiaozheng = "";
         private void tiaozhengtrans(object sender, MouseButtonEventArgs e)
         {
+            MainBitmap = (BitmapImage)image.Source;
+            image.Source = MainBitmap;
+            history.Add(MainBitmap.Clone());
             currenttiaozheng = ((ImageShow)sender).textBlock.Text;
             Functions.inti(MainBitmap);
+            switch (currenttiaozheng)
+            {
+                case "亮度":slider.Maximum = 100;slider.Minimum = -100;slider.Value = 0; break;
+                case "对比度":slider.Maximum = 200;slider.Minimum = 0;slider.Value = 100; break;
+            }
+            DoubleAnimation daV = new DoubleAnimation(0, 1, new Duration(TimeSpan.FromSeconds(0.25)));
+            slider.BeginAnimation(OpacityProperty, daV);
+            foreach(ImageShow tt in ((StackPanel)((ImageShow)sender).Parent).Children)
+            {
+                if (tt.isclick)
+                    tt.unclick();
+            }
+            ((ImageShow)sender).click();
+            issliderbarin = true;
         }
         private void Slider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
-            image.Source = Functions.fun2(currenttiaozheng, (int)slider.Value);
+            if (currenttiaozheng != "")
+            {
+                MainBitmap = Functions.fun2(currenttiaozheng, (int)slider.Value);
+                image.Source = MainBitmap;
+            }
         }
 
         //贴纸的按钮点击触发
@@ -217,12 +240,24 @@ namespace FU_UWP
         {
             var tmp = Functions.fun(MainBitmap, ((ImageShow)sender).textBlock.Text);
             image.Source = tmp;
+            foreach (ImageShow tt in ((StackPanel)((ImageShow)sender).Parent).Children)
+            {
+                if (tt.isclick)
+                    tt.unclick();
+            }
+            ((ImageShow)sender).click();
             history.Add(tmp);
         }
         //风格转换的按钮的点击触发
         private void fengetrans(object sender, MouseButtonEventArgs e)
         {
             fenggebianhuan(((ImageShow)sender).textBlock.Text);
+            foreach (ImageShow tt in ((StackPanel)((ImageShow)sender).Parent).Children)
+            {
+                if (tt.isclick)
+                    tt.unclick();
+            }
+            ((ImageShow)sender).click();
         }
 
         void fenggebianhuan(string name)
@@ -345,8 +380,14 @@ namespace FU_UWP
                 chongpai.BeginAnimation(MarginProperty, anim5);
                 iscongpaiin = false;
             }
+            if (issliderbarin)
+            {
+                DoubleAnimation daV = new DoubleAnimation(1, 0, new Duration(TimeSpan.FromSeconds(0.25)));
+                slider.BeginAnimation(OpacityProperty, daV);
+                issliderbarin = false;
+            }
             //拍好照了，说明在处理界面,同时 切换到打印的确认界面也用这个
-            if(istakeaphoto)
+            if (istakeaphoto)
             {
                 ThicknessAnimation anim6 = new ThicknessAnimation();
                 anim6.From = new Thickness(0, 0, 1720, 0);
@@ -445,6 +486,7 @@ namespace FU_UWP
             istakeaphoto = false;
             isdone = false;
             MainPageUpdate2();
+            history.Clear();
             ((ImageBrush)paizhao.Background).ImageSource = new BitmapImage(new Uri(@"..\..\images\图标\拍照.png", UriKind.Relative));
             ((ImageBrush)shangchuan.Background).ImageSource = new BitmapImage(new Uri(@"..\..\images\图标\上传.png", UriKind.Relative));
             ((ImageBrush)chongpai.Background).ImageSource = new BitmapImage(new Uri(@"..\..\images\图标\重拍.png", UriKind.Relative));
@@ -501,7 +543,7 @@ namespace FU_UWP
                 anim6.Duration = TimeSpan.FromSeconds(0.36);
                 chexiao.BeginAnimation(MarginProperty, anim6);
 
-                chexiao2.Visibility = Visibility.Visible;
+                chexiao2.Visibility = Visibility.Hidden;
 
                 istakeaphoto = true;
                 iscongpaiin = false;
@@ -616,7 +658,7 @@ namespace FU_UWP
 
                 ThicknessAnimation anim2 = new ThicknessAnimation();
                 anim2.From = new Thickness(1710, 460, 10, 420);
-                anim2.To = new Thickness(1216, 854, 504, 26);
+                anim2.To = new Thickness(1216, 880, 504, 0);
                 anim2.Duration = TimeSpan.FromSeconds(0.36);
                 shangchuan.BeginAnimation(MarginProperty, anim2);
 
@@ -650,7 +692,7 @@ namespace FU_UWP
 
                 ThicknessAnimation anim6 = new ThicknessAnimation();
                 anim6.From = new Thickness(1470, 1080, 250, -200);
-                anim6.To = new Thickness(1470, 854, 250, 26);
+                anim6.To = new Thickness(1470, 880, 250, 0);
                 anim6.Duration = TimeSpan.FromSeconds(0.36);
                 chexiao.BeginAnimation(MarginProperty, anim6);
                 #endregion
@@ -797,6 +839,13 @@ namespace FU_UWP
                 case "tiezhibutton": chooselistmoveoin(tiezhi); break;
             }
             currentlist = "";
+            currenttiaozheng = "";
+            if(issliderbarin)
+            {
+                DoubleAnimation daV = new DoubleAnimation(1, 0, new Duration(TimeSpan.FromSeconds(0.25)));
+                slider.BeginAnimation(OpacityProperty, daV);
+                issliderbarin = false;
+            }
             DoubleAnimation daV6 = new DoubleAnimation(1, 0, new Duration(TimeSpan.FromSeconds(0.25)));
             chexiao2.BeginAnimation(OpacityProperty, daV6);
             MainBitmap = (BitmapImage)image.Source;

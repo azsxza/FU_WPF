@@ -27,7 +27,7 @@ namespace FU_UWP
 
         private void image_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            ((Canvas)Parent).Children.Remove(this);
+            //((Canvas)Parent).Children.Remove(this);
         }
 
         private void image11_TouchDown(object sender, TouchEventArgs e)
