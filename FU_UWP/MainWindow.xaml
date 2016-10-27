@@ -122,7 +122,7 @@
                         <ImageBrush ImageSource="images/图标/贴纸.png"/>
                     </Button.Background>
                 </Button>
-                <Slider x:Name="slider" HorizontalAlignment="Left" Margin="321,247,-42,0" VerticalAlignment="Top" Width="31" Orientation="Vertical" Height="621" Minimum="-100" Maximum="100"/>
+                <Slider x:Name="slider" HorizontalAlignment="Left" Margin="321,247,-32,0" VerticalAlignment="Top" Width="21" Orientation="Vertical" Height="621" Minimum="-100" Maximum="100"/>
             </Grid>
             <ScrollViewer x:Name="fenggemofang" PanningMode="Both" ManipulationBoundaryFeedback="SCManipulationBoundaryFeedback"  HorizontalAlignment="Left" Height="1070" VerticalAlignment="Top" Width="310" Margin="310,0,0,0" Template="{DynamicResource ScrollViewerControlTemplate1}">
                 <StackPanel x:Name="stack_fenggemofang" Height="0" Width="300"/>

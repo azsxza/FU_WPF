@@ -568,6 +568,7 @@ namespace FU_UWP
             if(isdone)
             {
                 var tmp = new dayintishi();
+                Functions.printImage(MainBitmap);
                 tmp.ShowDialog();
                 BacktoMain();
             }
@@ -587,10 +588,26 @@ namespace FU_UWP
                     case "tiaozhengbutton": chooselistmoveoin(tiaozheng); break;
                     case "tiezhibutton": chooselistmoveoin(tiezhi); break;
                 }
+
+                var tmp = Functions.Canvas2BitmapImage(paizhaokuang);
+                MainBitmap = tmp;
+                history.Add(tmp);
+                image.Source = MainBitmap;
+                //删除贴纸
+                for(int i=0;i<paizhaokuang.Children.Count;i++)
+                {
+                    tiezhikuang tk = paizhaokuang.Children[i] as tiezhikuang;
+                    if(tk!=null)
+                    {
+                        paizhaokuang.Children.Remove(tk);
+                        i--;
+                    }
+                }
             }
             //如果重拍按钮在界面中，则该按钮的功能为完成
             else if(iscongpaiin)
             {
+                #region 动画
                 ThicknessAnimation anim = new ThicknessAnimation();
                 anim.From = new Thickness(10, 465, 1710, 0);
                 anim.To = new Thickness(0, 0, 1720, 0);
@@ -636,7 +653,7 @@ namespace FU_UWP
                 anim6.To = new Thickness(1470, 854, 250, 26);
                 anim6.Duration = TimeSpan.FromSeconds(0.36);
                 chexiao.BeginAnimation(MarginProperty, anim6);
-
+                #endregion
                 chexiao2.Visibility = Visibility.Visible;
 
                 istakeaphoto = true;

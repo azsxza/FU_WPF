@@ -2,11 +2,15 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Imaging;
+using System.Drawing.Printing;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Media;
 using System.Windows.Media.Imaging;
 
 namespace FU_UWP
@@ -151,7 +155,7 @@ namespace FU_UWP
             bmp2.UnlockBits(adata2);
             dest2.UnlockBits(data2);
         }
-        public static BitmapImage fun2(string name,int b)
+        public static BitmapImage fun2(string name, int b)
         {
             switch (name)
             {
@@ -187,5 +191,95 @@ namespace FU_UWP
 
             return bitmapImage;
         }
+
+        public static BitmapImage Canvas2BitmapImage(Canvas surface)
+        {
+            Transform transform = surface.LayoutTransform;
+            surface.LayoutTransform = null;
+
+            System.Windows.Size size = new System.Windows.Size(surface.Width, surface.Height);
+            surface.Measure(size);
+            surface.Arrange(new Rect(size));
+
+            RenderTargetBitmap renderBitmap =
+            new RenderTargetBitmap(
+            1920,
+            1080,
+            96d,
+            96d,
+            PixelFormats.Pbgra32);
+            renderBitmap.Render(surface);
+
+            var ta = new CroppedBitmap(BitmapFrame.Create(renderBitmap), new Int32Rect(816, 72, 1000, 750));
+            BitmapSource bitmapSource = ta;
+
+            JpegBitmapEncoder encoder = new JpegBitmapEncoder();
+            MemoryStream memoryStream = new MemoryStream();
+            BitmapImage bImg = new BitmapImage();
+
+            encoder.Frames.Add(BitmapFrame.Create(bitmapSource));
+            encoder.Save(memoryStream);
+
+            memoryStream.Position = 0;
+            bImg.BeginInit();
+            bImg.StreamSource = new MemoryStream(memoryStream.ToArray());
+            bImg.EndInit();
+            memoryStream.Close();
+            return bImg;
+        }
+
+        public static void printImage(BitmapImage bi)
+        {
+            JpegBitmapEncoder encoder = new JpegBitmapEncoder();
+            encoder.Frames.Add(BitmapFrame.Create(bi));
+            FileStream files = new FileStream("1.jpg", FileMode.Create, FileAccess.ReadWrite);
+            encoder.Save(files);
+            files.Close();
+
+            PrintDocument pd = new PrintDocument();
+            pd.DefaultPageSettings.PrinterSettings.PrinterName = "Canon SELPHY CP1200";
+            PaperSize psize = new PaperSize();
+            foreach (PaperSize i in pd.PrinterSettings.PaperSizes)
+            {
+                if (i.PaperName == "P 无边距 100x148mm 4x6\"") //无边距可正常居中，有边距0,0点位置需考虑边距
+                {
+                    psize = i;
+                    break;
+
+                }
+                Console.WriteLine(i.PaperName);
+            }
+            pd.DefaultPageSettings.PaperSize = psize;
+            pd.PrintPage += (s, args) =>
+            {
+                System.Drawing.Image i = System.Drawing.Image.FromFile("1.jpg");
+                System.Drawing.Rectangle m = args.PageBounds;
+                if (i.Width < i.Height)
+                    i.RotateFlip(RotateFlipType.Rotate90FlipNone);
+
+                if (i.Width >= i.Height)
+                {
+                    if ((double)i.Width / (double)i.Height <= (double)m.Width / (double)m.Height)
+                    {
+                        int w = (int)((double)i.Width / (double)i.Height * (double)m.Height);
+                        int dx = (m.Width - w) / 2;
+                        m.X = dx;
+                        m.Y = 0;
+                        m.Width = w;
+                    }
+                    else
+                    {
+                        int h = (int)((double)i.Height / (double)i.Width * (double)m.Width);
+                        int dy = (m.Height - h) / 2;
+                        m.X = 0;
+                        m.Y = dy;
+                        m.Height = h;
+                    }
+                }
+                args.Graphics.DrawImage(i, m);
+            };
+            pd.Print();
+        }
+
     }
 }
