@@ -35,6 +35,9 @@ namespace FU_UWP
         Mat capframe;
         Bitmap tt;
 
+        //图片轮播使用的计时器
+        System.Timers.Timer timer;
+
         bool isinpaishe = false;
         bool iscongpaiin = false;
         bool istakeaphoto = false;
@@ -59,6 +62,36 @@ namespace FU_UWP
             this.Loaded += new RoutedEventHandler(MainWindow_Loaded);
 
             slider.ValueChanged += Slider_ValueChanged;
+
+            var tttt = new BitmapImage(new Uri(@"..\..\models\candy.jpg", UriKind.Relative));
+            timer = new System.Timers.Timer(1000 * 3);
+            int lunboinedx = 0;
+            timer.Elapsed += delegate
+            {
+                lunboinedx++;
+                Dispatcher.Invoke(DispatcherPriority.Normal, (Action)delegate ()
+                {
+                    if (lunboinedx == 1000)
+                    {
+                        lunbo.Children.Clear();
+                        lunboinedx = 0;
+                    }
+                    var tt = new System.Windows.Controls.Image();
+                    tt.Source = tttt;
+                    tt.Height = 200;
+                    tt.Width = 267;
+                    tt.Stretch = Stretch.Fill;
+                    tt.Margin = new Thickness(1320, 0, -267, 0);
+                    lunbo.Children.Add(tt);
+                    ThicknessAnimation anim = new ThicknessAnimation();
+                    anim.From = new Thickness(1593, 0, -267, 0);
+                    anim.To = new Thickness(-1868, 0, 0, 0);
+                    anim.Duration = TimeSpan.FromSeconds(15);
+                    tt.BeginAnimation(MarginProperty, anim);
+                });
+
+            };
+            timer.Start();
         }
 
 
@@ -329,6 +362,9 @@ namespace FU_UWP
         //在主页点按钮时调用，使用动画切换场景
         void MainPageUpdate1()
         {
+            timer.Stop();
+            lunbo.Children.Clear();
+
             ThicknessAnimation anim = new ThicknessAnimation();
             anim.From = new Thickness(462, 255, 1058, 0);
             anim.To = new Thickness(10, 465, 1710, 0);
@@ -481,6 +517,7 @@ namespace FU_UWP
         //在最后完成后返回到主页时使用
         public void BacktoMain()
         {
+            timer.Start();
             isinpaishe = false;
             iscongpaiin = true;
             istakeaphoto = false;
@@ -570,6 +607,7 @@ namespace FU_UWP
                 {
                     ((ImageBrush)paizhao.Background).ImageSource = new BitmapImage(new Uri(@"..\..\images\图标\拍照.png", UriKind.Relative));
                     ((ImageBrush)shangchuan.Background).ImageSource = new BitmapImage(new Uri(@"..\..\images\图标\从相册中选择.png", UriKind.Relative));
+                    timer.Start();
 
                     isinpaishe = false;
                 }

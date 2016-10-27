@@ -167,7 +167,9 @@
 
 
     <Grid Background="#FFDFD3D3">
-        <Grid x:Name="show_bar" HorizontalAlignment="Left" Height="290" Margin="0,790,0,0" VerticalAlignment="Top" Width="1920" Background="#FF7791B6"/>
+        <Grid x:Name="show_bar" HorizontalAlignment="Left" Height="290" Margin="0,790,0,0" VerticalAlignment="Top" Width="1920" Background="#FF7791B6">
+            <Grid x:Name="lunbo" ClipToBounds="True" HorizontalAlignment="Left" Height="200" Margin="165,46,0,0" VerticalAlignment="Top" Width="1593"/>
+        </Grid>
         <Image x:Name="FU_NAME" HorizontalAlignment="Left" Height="250" Margin="462,0,0,0" VerticalAlignment="Top" Width="1000" Source="images/组成部分/浮生绘.png"/>
         <Button x:Name="paizhao" Panel.ZIndex="1" Content="" HorizontalAlignment="Center" Margin="462,255,1058,0" VerticalAlignment="Top" Width="400" Height="400" BorderBrush="#00707070" Foreground="#00000000" Style="{DynamicResource ImageButton}" Click="paizhao_Click">
             <Button.Background>
