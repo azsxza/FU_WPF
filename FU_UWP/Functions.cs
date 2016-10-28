@@ -107,7 +107,7 @@ namespace FU_UWP
                 case "油画2": MtxxOilPaint(src, output, bmp.Width, bmp.Height, ImageStride); break;
                 case "素描": MtxxLifeSketch(src, output, bmp.Width, bmp.Height, ImageStride); break;
                 case "铅笔画":PencilDraw(src, output, bmp.Height, bmp.Width, ImageStride); break;
-                case "彩色铅笔画":ColorPencilDraw(src, output, bmp.Height, bmp.Width, ImageStride);break;
+                case "彩色铅笔画": ColorPencilDraw(src, output, bmp.Height, bmp.Width, ImageStride); break;
                 case "水彩": WaterColor(src, output, bmp.Width, bmp.Height, ImageStride); break;
                 case "粉笔": Fenbi(src, output, bmp.Width, bmp.Height, ImageStride); break;
                 case "线条2": Line(src, output, bmp.Width, bmp.Height, ImageStride); break;
@@ -143,6 +143,8 @@ namespace FU_UWP
                 case "水彩": WaterColor(src, output, bmp.Width, bmp.Height, ImageStride); break;
                 case "粉笔": Fenbi(src, output, bmp.Width, bmp.Height, ImageStride); break;
                 case "线条2": Line(src, output, bmp.Width, bmp.Height, ImageStride); break;
+                case "铅笔画": PencilDraw(src, output, bmp.Height, bmp.Width, ImageStride); break;
+                case "彩色铅笔画": ColorPencilDraw(src, output, bmp.Height, bmp.Width, ImageStride); break;
             }
 
             return Bitmap2BitmapImage(dest);

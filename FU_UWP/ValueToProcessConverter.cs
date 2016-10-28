@@ -157,7 +157,7 @@ namespace FU_UWP
             }
             else {
                 drawingContext.DrawEllipse(null, new Pen(NormalBrush, thickness), centerPoint, radiusX, radiusY);
-                FormattedText formatWords = new FormattedText("100%",
+                FormattedText formatWords = new FormattedText("5",
                     CultureInfo.CurrentCulture,
                     FlowDirection.LeftToRight,
                     SuccessRateTypeface,

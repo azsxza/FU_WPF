@@ -35,6 +35,8 @@ namespace FU_UWP
         Mat capframe;
         Bitmap tt;
 
+        List<BitmapImage> LunboList;
+
         //图片轮播使用的计时器
         System.Timers.Timer timer;
 
@@ -63,7 +65,13 @@ namespace FU_UWP
 
             slider.ValueChanged += Slider_ValueChanged;
 
-            var tttt = new BitmapImage(new Uri(@"..\..\models\candy.jpg", UriKind.Relative));
+            LunboList = new List<BitmapImage>();
+            int imagelistnum = 4;
+            for(int i=1;i<= imagelistnum; i++)
+            {
+                LunboList.Add(new BitmapImage(new Uri(@"..\..\images\showlist\" + i.ToString() + ".jpg", UriKind.Relative)));
+            }
+
             timer = new System.Timers.Timer(1000 * 3);
             int lunboinedx = 0;
             timer.Elapsed += delegate
@@ -77,7 +85,7 @@ namespace FU_UWP
                         lunboinedx = 0;
                     }
                     var tt = new System.Windows.Controls.Image();
-                    tt.Source = tttt;
+                    tt.Source = LunboList[lunboinedx % imagelistnum];
                     tt.Height = 200;
                     tt.Width = 267;
                     tt.Stretch = Stretch.Fill;
@@ -266,6 +274,8 @@ namespace FU_UWP
         private void lvjingtrans(object sender, MouseButtonEventArgs e)
         {
             var tmp = Functions.fun(MainBitmap, ((ImageShow)sender).textBlock.Text);
+            //string text = ((ImageShow)sender).textBlock.Text;
+            //Console.WriteLine(text);
             image.Source = tmp;
             foreach (ImageShow tt in ((StackPanel)((ImageShow)sender).Parent).Children)
             {
@@ -795,8 +805,7 @@ namespace FU_UWP
                 new Thread(() =>
                 {
                     Mat mini = new Mat();
-                    CvInvoke.Resize(capframe, mini, new System.Drawing.Size(200, 200));
-                    var bmp = mini.Bitmap;
+                    CvInvoke.Resize(capframe, mini, new System.Drawing.Size(220, 220));
                     for(int i=0;i<sum;i++)
                     {
                         Dispatcher.Invoke(new Action(() =>

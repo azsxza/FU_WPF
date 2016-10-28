@@ -150,7 +150,6 @@
   <ItemGroup>
     <Resource Include="images\图标\从相册中选择.png" />
     <Resource Include="images\图标\完成.png" />
-    <Resource Include="images\图标\局部调整.png" />
     <Resource Include="images\图标\拍摄.png" />
     <Resource Include="images\图标\拍照.png" />
     <Resource Include="images\图标\滤镜.png" />
@@ -242,6 +241,21 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="images\无标题.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\图标\局部调整.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\showlist\1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\showlist\2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\showlist\3.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\showlist\4.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

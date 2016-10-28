@@ -45,3 +45,6 @@ C:\Users\chengk\Desktop\FU_WPF\FU_UWP\obj\Debug\tiezhikuang.baml
 C:\Users\chengk\Desktop\FU_WPF\FU_UWP\obj\Debug\show_process.g.cs
 C:\Users\chengk\Desktop\FU_WPF\FU_UWP\obj\Debug\GeneratedInternalTypeHelper.g.cs
 C:\Users\chengk\Desktop\FU_WPF\FU_UWP\obj\Debug\show_process.baml
+D:\FU_WPF\FU_UWP\obj\Debug\show_process.g.cs
+D:\FU_WPF\FU_UWP\obj\Debug\GeneratedInternalTypeHelper.g.cs
+D:\FU_WPF\FU_UWP\obj\Debug\show_process.baml

@@ -7,7 +7,6 @@ typedef struct __THREAD_DATA
 }THREAD_DATA;
 
 THREAD_DATA td;
-Mat aa = imread ("texture1.jpg");
 
 Mat RotateImage (const Mat source, double angle, int border)
 {
@@ -387,11 +386,8 @@ Mat PencilDraw (Mat I, int ks, int dirNum, double gamma)
 {
 	Mat P = imread ("texture.jpg");
 	cvtColor (P, P, CV_BGR2GRAY);
-	if (I.channels () == 3)
-		cvtColor (I, I, CV_BGR2GRAY);
-	else if (I.channels () == 4)
-		cvtColor (I, I, CV_BGRA2GRAY);
-	resize (P, P, I.size ());
+
+	//resize (P, P, I.size ());
 	td.p = P;
 	td.src = I;
 	HANDLE hThread1 = CreateThread (NULL, 0, Render, &td, 0, NULL);
@@ -407,8 +403,18 @@ void PencilDraw (uchar* I, uchar* output, int rows, int cols, int stride, int ks
 {
 	int channel = stride / cols;
 	Mat I2 = cv::Mat (rows, cols, CV_MAKETYPE (CV_8U, channel), I, stride);
-	Mat dest = PencilDraw (I2.clone (), ks, dirNum, gamma);
-
+	Mat gray;
+	if (channel == 3)
+		cvtColor (I2, gray, CV_BGR2GRAY);
+	else if (channel == 4)
+		cvtColor (I2, gray, CV_BGRA2GRAY);
+	Mat dest = PencilDraw (gray, ks, dirNum, gamma);
+	imshow ("dest", dest);
+	waitKey (0);
+	if (channel == 3)
+		cvtColor (dest, dest, CV_GRAY2BGR);
+	else if (channel == 4)
+		cvtColor (dest, dest, CV_GRAY2BGRA);
 	for (int i = 0;i < dest.cols*dest.rows * channel;i++)
 		output[i] = dest.data[i];
 }
