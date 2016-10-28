@@ -257,6 +257,36 @@
   <ItemGroup>
     <Resource Include="images\showlist\4.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\调整\色相c.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\调整\色相.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\调整\亮度.png" />
+    <Resource Include="images\调整\亮度c.png" />
+    <Resource Include="images\调整\对比度.png" />
+    <Resource Include="images\调整\对比度c.png" />
+    <Resource Include="images\调整\饱和度.png" />
+    <Resource Include="images\调整\饱和度c.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\调整\多色调.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\调整\多色调c.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\showlist\5.jpg" />
+    <Resource Include="images\showlist\6.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\showlist\8.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\showlist\7.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

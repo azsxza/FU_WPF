@@ -213,7 +213,8 @@ namespace FU_UWP
             while ((line = sr4.ReadLine()) != null)
             {
                 ImageShow Is = new ImageShow();
-                Is.image.Source = new BitmapImage(new Uri(@"..\..\images\QQ截图20161025211605.png", UriKind.Relative));
+                Is.image.Source = new BitmapImage(new Uri(@"..\..\images\调整\"+line+".png", UriKind.Relative));
+                Is.textBlock.Visibility = Visibility.Hidden;
                 Is.textBlock.Text = line;
                 Is.MouseDown += tiaozhengtrans;
                 stack_tiaozheng.Children.Add(Is);
