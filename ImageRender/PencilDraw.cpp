@@ -62,7 +62,7 @@ Mat GenStroke (const Mat I, int ks, int dirNum, double gamma)
 
 	for (i = 0;i<dirNum;i++)
 	{
-		kef = RotateImage (kerRef, i*180.0f / dirNum,20);
+		kef = RotateImage (kerRef, i*180.0f / dirNum, 20);
 		filter2D (imEdge, response[i], CV_32F, kef);
 		responseptr[i] = response[i].ptr<float> (0);
 	}
@@ -383,28 +383,14 @@ DWORD WINAPI Render (LPVOID lpParameter)
 	return 0L;
 }
 
-void PencilDraw (uchar* I, int ks, int dirNum, double gamma, uchar* P, int rows, int cols, int rows2, int cols2, uchar* output)
+Mat PencilDraw (Mat I, int ks, int dirNum, double gamma)
 {
-	Mat I2 (rows, cols, CV_8UC3, I);
-	Mat P2 (rows2, cols2, CV_8UC3, P);
-	cvtColor (I2, I2, CV_BGRA2GRAY);
-	cvtColor (P2, P2, CV_BGRA2GRAY);
-
-	resize (P2, P2, I2.size ());
-	td.p = P2;
-	td.src = I2;
-	HANDLE hThread1 = CreateThread (NULL, 0, Render, &td, 0, NULL);
-	Mat stroke = GenStroke (I2, ks, dirNum, gamma);
-	CloseHandle (hThread1);
-
-	Mat mul = BlendImage (stroke, td.src);
-	cvtColor (mul, mul, CV_GRAY2BGR);
-	for (int i = 0;i < mul.cols*mul.rows*3;i++)
-		output[i] = mul.data[i];
-}
-
-Mat PencilDraw (Mat I, int ks, int dirNum, double gamma, Mat P)
-{
+	Mat P = imread ("texture.jpg");
+	cvtColor (P, P, CV_BGR2GRAY);
+	if (I.channels () == 3)
+		cvtColor (I, I, CV_BGR2GRAY);
+	else if (I.channels () == 4)
+		cvtColor (I, I, CV_BGRA2GRAY);
 	resize (P, P, I.size ());
 	td.p = P;
 	td.src = I;
@@ -413,49 +399,44 @@ Mat PencilDraw (Mat I, int ks, int dirNum, double gamma, Mat P)
 	CloseHandle (hThread1);
 
 	Mat mul = BlendImage (stroke, td.src);
-	
+
 	return mul;
 }
 
-void ColorPencilDraw (uchar* I, int ks, int dirNum, double gamma, uchar* P, int rows, int cols, int rows2, int cols2,uchar* output)
+void PencilDraw (uchar* I, uchar* output, int rows, int cols, int stride, int ks, int dirNum, double gamma)
 {
-	Mat Iruv;
-	vector<Mat> vec;
-	Mat I2 (rows, cols, CV_8UC3, I);
-	Mat P2 (rows2, cols2, CV_8UC3, P);
+	int channel = stride / cols;
+	Mat I2 = cv::Mat (rows, cols, CV_MAKETYPE (CV_8U, channel), I, stride);
+	Mat dest = PencilDraw (I2.clone (), ks, dirNum, gamma);
 
-	cvtColor (I2, Iruv, COLOR_BGR2YUV);
-	cvtColor (P2, P2, CV_BGR2GRAY);
-
-	split (Iruv, vec);
-
-	vec[0] = PencilDraw (vec[0], ks, dirNum, gamma, P2);
-	merge (vec, Iruv);
-
-	Mat dst;
-
-	cvtColor (Iruv, dst, COLOR_YUV2BGR);
-
-	for (int i = 0;i < dst.cols*dst.rows * 3;i++)
-		output[i] = dst.data[i];
+	for (int i = 0;i < dest.cols*dest.rows * channel;i++)
+		output[i] = dest.data[i];
 }
 
-Mat ColorPencilDraw (Mat I2, int ks, int dirNum, double gamma, Mat P2)
+
+void ColorPencilDraw (uchar* I, uchar* output, int rows, int cols, int stride, int ks, int dirNum, double gamma)
 {
 	Mat Iruv;
 	vector<Mat> vec;
+	int channel = stride / cols;
+	Mat I2 = cv::Mat (rows, cols, CV_MAKETYPE (CV_8U, channel), I, stride);
+	if (I2.channels () == 4)
+		cvtColor (I2, I2, CV_BGRA2BGR);
 
-	cvtColor (I2, Iruv, COLOR_BGR2YUV);
-	cvtColor (P2, P2, CV_BGR2GRAY);
+	cvtColor (I2.clone (), Iruv, COLOR_BGR2YUV);
 
 	split (Iruv, vec);
 
-	vec[0] = PencilDraw (vec[0], ks, dirNum, gamma, P2);
+	vec[0] = PencilDraw (vec[0], ks, dirNum, gamma);
 	merge (vec, Iruv);
 
 	Mat dst;
 
 	cvtColor (Iruv, dst, COLOR_YUV2BGR);
 
-	return dst;
+	if (channel == 4)
+		cvtColor (dst, dst, CV_BGR2BGRA);
+
+	for (int i = 0;i < dst.cols*dst.rows * channel;i++)
+		output[i] = dst.data[i];
 }

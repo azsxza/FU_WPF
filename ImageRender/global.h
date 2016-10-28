@@ -76,10 +76,10 @@ Mat Mosaic (Mat I, int size);
 
 
 //Ç¦±Ê»­ 1
-extern "C" __declspec(dllexport) void PencilDraw (uchar* I, int ks, int dirNum, double gamma, uchar* P, int rows, int cols, int rows2, int cols2, uchar* output);
+extern "C" __declspec(dllexport) void PencilDraw (uchar* I, uchar* output, int rows, int cols, int stride, int ks, int dirNum, double gamma);
 
 //²ÊÉ«Ç¦±Ê»­ 2
-extern "C" __declspec(dllexport) void ColorPencilDraw (uchar* I, int ks, int dirNum, double gamma, uchar* P, int rows, int cols, int rows2, int cols2,uchar* output);
+extern "C" __declspec(dllexport) void ColorPencilDraw (uchar* I, uchar* output, int rows, int cols, int stride, int ks, int dirNum, double gamma);
 
 //GTA5·ç¸ñ 3 
 extern "C" __declspec(dllexport) void GTA5Style (uchar* Src, uchar* Dest, int Width, int Height, int Stride, int brushSize, int coarseness);
@@ -154,7 +154,7 @@ extern "C" __declspec(dllexport) void Lowpoly (uchar* src, uchar*dest, int index
 extern "C" __declspec(dllexport) void Line (uchar* src, uchar*dest, int width, int height, int stride);
 
 //¼õÉÙÑÕÉ« 28
-extern "C" _declspec(dllexport) void ColorReduce (uchar* src, uchar* dest, int div, int height, int width, int stride);
+extern "C" _declspec(dllexport) void ColorReduce (uchar* src, uchar* dest, int height, int width, int stride, int div);
 
 //................ 29
 extern "C" _declspec(dllexport) void shan (uchar* src, uchar* dest, double ddd, int height, int width, int stride);

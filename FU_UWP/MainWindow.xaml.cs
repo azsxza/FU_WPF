@@ -228,6 +228,7 @@ namespace FU_UWP
             {
                 case "亮度":slider.Maximum = 100;slider.Minimum = -100;slider.Value = 0; break;
                 case "对比度":slider.Maximum = 200;slider.Minimum = 0;slider.Value = 100; break;
+                case "多色调":slider.Maximum = 128;slider.Minimum = 1;slider.Value = 1;break;
             }
             DoubleAnimation daV = new DoubleAnimation(0, 1, new Duration(TimeSpan.FromSeconds(0.25)));
             slider.BeginAnimation(OpacityProperty, daV);
