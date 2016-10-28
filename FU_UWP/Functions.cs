@@ -62,7 +62,8 @@ namespace FU_UWP
         [DllImport("ImageRender.dll", CallingConvention = CallingConvention.Cdecl)]
         public extern static void setCompare(byte* src, byte* dest, int height, int width, int stride, int b);
 
-
+        [DllImport("ImageRender.dll", CallingConvention = CallingConvention.Cdecl)]
+        public extern static void ColorReduce(byte* src, byte* dest, int height, int width, int stride, int b);
 
 
 
