@@ -63,9 +63,13 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="show_process.xaml.cs">
+      <DependentUpon>show_process.xaml</DependentUpon>
+    </Compile>
     <Compile Include="tiezhikuang.xaml.cs">
       <DependentUpon>tiezhikuang.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ValueToProcessConverter.cs" />
     <Page Include="dayintishi.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -93,6 +97,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="show_process.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="tiezhikuang.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -231,6 +239,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="images\图标\对号 %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\无标题.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

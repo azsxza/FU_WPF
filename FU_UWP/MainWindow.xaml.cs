@@ -736,6 +736,10 @@ namespace FU_UWP
             else if(isinpaishe)
             {
                 //capframe = CvInvoke.Imread(@"..\..\images\psb.jpg", LoadImageType.AnyColor);
+                var waitbar = new show_process();
+                waitbar.Left = Width / 2 - waitbar.Width / 2;
+                waitbar.Top = Height / 2 - waitbar.Height / 2;
+                waitbar.ShowDialog();
                 tt = capframe.Bitmap;
                 cap.Stop();
 
