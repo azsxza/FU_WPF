@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FU_UWP"
-        mc:Ignorable="d" AllowsTransparency="True"
+        mc:Ignorable="d" AllowsTransparency="True" Topmost="True"
                Title="Show_Progres" Height="200" Width="200" WindowStyle="None" Background="Transparent">
     <Window.Resources>
         <local:ValueToProcessConverter x:Key="ValueToProcessConverter"/>

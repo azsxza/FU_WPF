@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FU_UWP"
         mc:Ignorable="d"
-        Title="MainWindow" Height="1080" Width="1920" WindowState="Normal"
+        Title="MainWindow" Height="1080" Width="1920" WindowState="Normal" Topmost="True"
         ResizeMode="NoResize" WindowStyle="None" Left="0.0" Top="0.0" KeyUp="Window_KeyUp">
     <Window.Resources>
         <Style x:Key="FocusVisual">
@@ -235,7 +235,7 @@
             </Button.Background>
         </Button>
         <Grid x:Name="shan" Visibility="Hidden" Opacity="0" HorizontalAlignment="Left" Height="900" Margin="360,90,0,0" VerticalAlignment="Top" Width="1200" Background="#BF000000"/>
-        <Button x:Name="chexiao2" Panel.ZIndex="1" Visibility="Visible" Opacity="0" Content="" HorizontalAlignment="Left" Margin="462,10,0,0" VerticalAlignment="Top" Width="100" Height="100" BorderBrush="#00707070" Foreground="#00000000" Style="{DynamicResource ImageButton}" Click="chexiao2_Click">
+        <Button x:Name="chexiao2" Panel.ZIndex="1" Visibility="Hidden" Opacity="0" Content="" HorizontalAlignment="Left" Margin="462,10,0,0" VerticalAlignment="Top" Width="100" Height="100" BorderBrush="#00707070" Foreground="#00000000" Style="{DynamicResource ImageButton}" Click="chexiao2_Click">
             <Button.Background>
                 <ImageBrush ImageSource="images/撤销.png"/>
             </Button.Background>

@@ -585,7 +585,7 @@ namespace FU_UWP
                 anim6.Duration = TimeSpan.FromSeconds(0.36);
                 chexiao.BeginAnimation(MarginProperty, anim6);
 
-                chexiao2.Visibility = Visibility.Hidden;
+                //chexiao2.Visibility = Visibility.Hidden;
 
                 istakeaphoto = true;
                 iscongpaiin = false;
@@ -593,6 +593,8 @@ namespace FU_UWP
 
                 ((ImageBrush)shangchuan.Background).ImageSource = new BitmapImage(new Uri(@"..\..\images\图标\完成.png", UriKind.Relative));
                 ((ImageBrush)chongpai.Background).ImageSource = new BitmapImage(new Uri(@"..\..\images\图标\重拍.png", UriKind.Relative));
+
+                chexiao2.Visibility = Visibility.Visible;
             }
             //在主页的状态下
             else if (isinpaishe == false)
@@ -622,6 +624,24 @@ namespace FU_UWP
                     iscongpaiin = true;
                 }
 
+                switch (currentlist)
+                {
+                    case "fenggemofangbutton": chooselistmoveoin(fenggemofang); break;
+                    case "lvjingbutton": chooselistmoveoin(lvjing); break;
+                    case "tiaozhengbutton": chooselistmoveoin(tiaozheng); break;
+                    case "tiezhibutton": chooselistmoveoin(tiezhi); break;
+                }
+                currentlist = "";
+                currenttiaozheng = "";
+                if (issliderbarin)
+                {
+                    DoubleAnimation daV = new DoubleAnimation(1, 0, new Duration(TimeSpan.FromSeconds(0.25)));
+                    slider.BeginAnimation(OpacityProperty, daV);
+                    issliderbarin = false;
+                }
+                DoubleAnimation daV6 = new DoubleAnimation(1, 0, new Duration(TimeSpan.FromSeconds(0.25)));
+                chexiao2.BeginAnimation(OpacityProperty, daV6);
+                MainBitmap = (BitmapImage)image.Source;
                 chexiao2.Visibility = Visibility.Hidden;
             }
         }
@@ -664,7 +684,27 @@ namespace FU_UWP
                 ((ImageBrush)shangchuan.Background).ImageSource = new BitmapImage(new Uri(@"..\..\images\图标\打印.png", UriKind.Relative));
                 ((ImageBrush)chongpai.Background).ImageSource = new BitmapImage(new Uri(@"..\..\images\图标\发送电子版.png", UriKind.Relative));
                 isdone = true;
+
+                switch (currentlist)
+                {
+                    case "fenggemofangbutton": chooselistmoveoin(fenggemofang); break;
+                    case "lvjingbutton": chooselistmoveoin(lvjing); break;
+                    case "tiaozhengbutton": chooselistmoveoin(tiaozheng); break;
+                    case "tiezhibutton": chooselistmoveoin(tiezhi); break;
+                }
+                currentlist = "";
+                currenttiaozheng = "";
+                if (issliderbarin)
+                {
+                    DoubleAnimation daV = new DoubleAnimation(1, 0, new Duration(TimeSpan.FromSeconds(0.25)));
+                    slider.BeginAnimation(OpacityProperty, daV);
+                    issliderbarin = false;
+                }
+                DoubleAnimation daV6 = new DoubleAnimation(1, 0, new Duration(TimeSpan.FromSeconds(0.25)));
+                chexiao2.BeginAnimation(OpacityProperty, daV6);
+                MainBitmap = (BitmapImage)image.Source;
                 chexiao2.Visibility = Visibility.Hidden;
+                
                 MainBitmap = (BitmapImage)image.Source;
                 switch (currentlist)
                 {
@@ -740,7 +780,7 @@ namespace FU_UWP
                 chexiao.BeginAnimation(MarginProperty, anim6);
                 #endregion
                 chexiao2.Visibility = Visibility.Visible;
-
+                chexiao2.Opacity = 0;
                 istakeaphoto = true;
                 iscongpaiin = false;
             }

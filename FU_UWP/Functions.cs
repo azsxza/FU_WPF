@@ -99,18 +99,18 @@ namespace FU_UWP
                 case "复古": Worlde(src, output, bmp.Height, bmp.Width, ImageStride); break;
                 case "雕刻": Carving(src, output, bmp.Height, bmp.Width, ImageStride); break;
                 case "彩色素描": MtxxCQ(src, output, bmp.Width, bmp.Height, ImageStride); break;
-                case "GTA5Style": GTA5Style(src, output, bmp.Width, bmp.Height, ImageStride); break;
+                case "浮板绘": GTA5Style(src, output, bmp.Width, bmp.Height, ImageStride); break;
                 case "卡通": Cartoon(src, output, bmp.Width, bmp.Height, ImageStride); break;
                 case "抽象画": CoherenceFilter(src, output, bmp.Width, bmp.Height, ImageStride); break;
                 case "线条": LineDrawing(src, output, bmp.Width, bmp.Height, ImageStride); break;
-                case "油画": OilPaint(src, output, bmp.Width, bmp.Height, ImageStride); break;
-                case "油画2": MtxxOilPaint(src, output, bmp.Width, bmp.Height, ImageStride); break;
+                //case "油画": OilPaint(src, output, bmp.Width, bmp.Height, ImageStride); break;
+                case "油画": MtxxOilPaint(src, output, bmp.Width, bmp.Height, ImageStride); break;
                 case "素描": MtxxLifeSketch(src, output, bmp.Width, bmp.Height, ImageStride); break;
                 case "铅笔画":PencilDraw(src, output, bmp.Height, bmp.Width, ImageStride); break;
                 case "彩色铅笔画": ColorPencilDraw(src, output, bmp.Height, bmp.Width, ImageStride); break;
                 case "水彩": WaterColor(src, output, bmp.Width, bmp.Height, ImageStride); break;
                 case "粉笔": Fenbi(src, output, bmp.Width, bmp.Height, ImageStride); break;
-                case "线条2": Line(src, output, bmp.Width, bmp.Height, ImageStride); break;
+                case "螺旋体": Line(src, output, bmp.Width, bmp.Height, ImageStride); break;
             }
 
             return Bitmap2BitmapImage(dest);
@@ -133,16 +133,16 @@ namespace FU_UWP
                 case "复古": Worlde(src, output, bmp.Height, bmp.Width, ImageStride); break;
                 case "雕刻": Carving(src, output, bmp.Height, bmp.Width, ImageStride); break;
                 case "彩色素描": MtxxCQ(src, output, bmp.Width, bmp.Height, ImageStride); break;
-                case "GTA5Style": GTA5Style(src, output, bmp.Width, bmp.Height, ImageStride); break;
+                case "浮板绘": GTA5Style(src, output, bmp.Width, bmp.Height, ImageStride); break;
                 case "卡通": Cartoon(src, output, bmp.Width, bmp.Height, ImageStride); break;
                 case "抽象画": CoherenceFilter(src, output, bmp.Width, bmp.Height, ImageStride); break;
                 case "线条": LineDrawing(src, output, bmp.Width, bmp.Height, ImageStride); break;
-                case "油画": OilPaint(src, output, bmp.Width, bmp.Height, ImageStride); break;
-                case "油画2": MtxxOilPaint(src, output, bmp.Width, bmp.Height, ImageStride); break;
+                //case "油画": OilPaint(src, output, bmp.Width, bmp.Height, ImageStride); break;
+                case "油画": MtxxOilPaint(src, output, bmp.Width, bmp.Height, ImageStride); break;
                 case "素描": MtxxLifeSketch(src, output, bmp.Width, bmp.Height, ImageStride); break;
                 case "水彩": WaterColor(src, output, bmp.Width, bmp.Height, ImageStride); break;
                 case "粉笔": Fenbi(src, output, bmp.Width, bmp.Height, ImageStride); break;
-                case "线条2": Line(src, output, bmp.Width, bmp.Height, ImageStride); break;
+                case "螺旋体": Line(src, output, bmp.Width, bmp.Height, ImageStride); break;
                 case "铅笔画": PencilDraw(src, output, bmp.Height, bmp.Width, ImageStride); break;
                 case "彩色铅笔画": ColorPencilDraw(src, output, bmp.Height, bmp.Width, ImageStride); break;
             }
