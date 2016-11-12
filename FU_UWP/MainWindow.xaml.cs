@@ -287,6 +287,7 @@ namespace FU_UWP
             history.Add(tmp);
         }
         //风格转换的按钮的点击触发
+        
         private void fengetrans(object sender, MouseButtonEventArgs e)
         {
             fenggebianhuan(((ImageShow)sender).textBlock.Text);
@@ -300,6 +301,7 @@ namespace FU_UWP
 
         void fenggebianhuan(string name)
         {
+            wait www = new wait();
             new Thread(() =>
             {
                 JpegBitmapEncoder encoder = new JpegBitmapEncoder();
@@ -323,12 +325,14 @@ namespace FU_UWP
 
                 Dispatcher.Invoke(new Action(() =>
                 {
+                    www.close1();
                     BitmapImage tmp = GetImage(System.IO.Directory.GetCurrentDirectory() + "\\out.jpg");
                     image.Source = tmp;
                     history.Add(tmp);
                 }));
                 File.Delete("out.jpg");
             }).Start();
+            www.ShowDialog();
         }
 
         public static BitmapImage GetImage(string imagePath)

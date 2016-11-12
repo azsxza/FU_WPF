@@ -70,6 +70,9 @@
       <DependentUpon>tiezhikuang.xaml</DependentUpon>
     </Compile>
     <Compile Include="ValueToProcessConverter.cs" />
+    <Compile Include="wait.xaml.cs">
+      <DependentUpon>wait.xaml</DependentUpon>
+    </Compile>
     <Page Include="dayintishi.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -102,6 +105,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="tiezhikuang.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="wait.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -286,6 +293,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="images\showlist\7.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="models\s.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
