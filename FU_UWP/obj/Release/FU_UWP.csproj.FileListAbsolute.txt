@@ -48,3 +48,4 @@ D:\FU_WPF\FU_UWP\obj\Release\show_process.baml
 D:\FU_WPF\FU_UWP\obj\Release\wait.g.cs
 D:\FU_WPF\FU_UWP\obj\Release\wait.baml
 D:\FU_WPF\FU_UWP\bin\Release\Emgu.CV.World.dll
+D:\FU_WPF\FU_UWP\obj\Release\FU_UWP.csprojResolveAssemblyReference.cache

@@ -295,7 +295,7 @@
     <Resource Include="images\showlist\7.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="models\s.jpg" />
+    <Resource Include="models\traditional.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
